@@ -1,0 +1,63 @@
+
+@import 'device';
+@import 'color';
+@import 'paper';
+
+#controls {
+  
+  position: absolute;
+  bottom:  $sheet-padding * 2 + $attribution-size + $sheet-padding * 2;
+  right: $sheet-padding * 2;
+
+  z-index: 1500;
+  
+  > .button, .buttons {
+    @include sheet();
+    transition: right 0.2s ease-out, opacity 0.2s ease;
+  }
+
+  .buttons {
+    position: relative;
+    right: 0;
+    :first-child {
+      border-radius: $sheet-radius $sheet-radius 0 0;
+    }
+    :last-child {
+      border-radius: 0 0 $sheet-radius $sheet-radius;
+    }
+  }
+
+  .button {
+    @include button();
+    box-sizing: content-box;
+    display: block;
+    width:  $material-icon-size;
+    height: $material-icon-size;
+    padding: $sheet-padding;
+  }
+
+  .buttons .button + .button {
+    border-top: 1px solid #ccc;
+  }
+
+  > .buttons + .button,
+  > .button  + .buttons,
+  > .buttons + .buttons,
+  > .button  + .button {
+    margin-top: $sheet-padding * 2;
+  }
+
+  .aircraft-lock.button.locked {
+    color: $primary-color;
+  }
+
+}
+
+@media (max-width: $mobile) {
+  #controls .zoom-control.buttons {
+    opacity: 0;
+    pointer-events: none;
+    right: -$sheet-padding * 2;
+  }
+}
+

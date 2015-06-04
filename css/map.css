@@ -1,0 +1,61 @@
+#map {
+  width: 100%;
+  height: 100%; }
+  #map #map-container {
+    width: 100%;
+    height: 100%; }
+    #map #map-container .leaflet-control-attribution {
+      display: none; }
+  #map .attribution {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-top: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1500;
+    transition: bottom 0.2s ease;
+    bottom: 0; }
+    #map .attribution .icon {
+      opacity: 0; }
+    #map .attribution .text {
+      opacity: 1; }
+    #map .attribution .icon {
+      box-sizing: content-box;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 16px;
+      padding: 8px;
+      width: 24px;
+      height: 24px;
+      transition: opacity 0.2s ease; }
+    #map .attribution .text {
+      background-color: rgba(255, 255, 255, 0.75);
+      display: block;
+      position: relative;
+      white-space: nowrap;
+      padding: 8px 16px;
+      transition: opacity 0.2s ease; }
+    #map .attribution.small {
+      bottom: -28px; }
+      #map .attribution.small .icon {
+        opacity: 1; }
+      #map .attribution.small .text {
+        opacity: 0; }
+
+@media (max-width: 840px) {
+  #map .attribution {
+    bottom: -28px; }
+    #map .attribution .icon {
+      opacity: 1; }
+    #map .attribution .text {
+      opacity: 0; }
+    #map .attribution:hover {
+      bottom: 0; }
+      #map .attribution:hover .icon {
+        opacity: 0; }
+      #map .attribution:hover .text {
+        opacity: 1; } }
+
+/*# sourceMappingURL=map.css.map */

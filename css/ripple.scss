@@ -1,0 +1,48 @@
+
+$ripple-size: 128px;
+
+.ripple, .button {
+  position: relative;
+  
+  overflow: hidden;
+}
+
+.ripples {
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+
+  width: 100%;
+  heigth: 100%;
+
+  div {
+    background-color: rgba(black, 0.3);
+
+    border-radius: 1000px !important;
+    
+    position: absolute;
+
+    opacity: 0.2;
+
+    width:  $ripple-size;
+    height: $ripple-size;
+    
+    transform: translate(-50%, -50%) scale(0.0);
+
+    transition: transform 0.7s ease, opacity 0.7s ease;
+
+    &.opening {
+      transform: translate(-50%, -50%) scale(1.0);
+      opacity: 1;
+    }
+
+    &.hidden {
+      opacity: 0;
+    }
+    
+  }
+  
+}

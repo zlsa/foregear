@@ -1,0 +1,110 @@
+
+@import 'device';
+@import 'paper';
+
+$attribution-anim: 0.2s;
+
+@mixin attribution-small() {
+  bottom: -$attribution-size - $sheet-padding * 2;
+
+  .icon {
+    opacity: 1;
+  }
+
+  .text {
+    opacity: 0;
+  }
+  
+}
+
+@mixin attribution-large() {
+  bottom: 0;
+
+  .icon {
+    opacity: 0;
+  }
+
+  .text {
+    opacity: 1;
+  }
+  
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+
+  #map-container {
+    width: 100%;
+    height: 100%;
+    
+    // hide the default leaflet attribution control
+    // don't worry, we've added our own
+    .leaflet-control-attribution {
+      display: none;
+    }
+  }
+
+  .attribution {
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    
+    padding-top: 8px + $material-icon-size + $sheet-padding;
+    
+    font-size: $attribution-size;
+    font-weight: 500;
+    
+    z-index: 1500;
+
+    transition: bottom $attribution-anim ease;
+    
+    @include attribution-large();
+
+    .icon {
+      box-sizing: content-box;
+      display: block;
+      position: absolute;
+
+      top: 0;
+      right: $sheet-padding * 2;
+      padding: $sheet-padding;
+
+      width: 24px;
+      height: 24px;
+
+      transition: opacity $attribution-anim ease;
+    }
+
+    .text {
+      background-color: rgba(white, 0.75);
+
+      display: block;
+      position: relative;
+      
+      white-space: nowrap;
+      
+      padding: 8px $sheet-padding * 2;
+      
+      transition: opacity $attribution-anim ease;
+    }
+
+    &.small {
+      @include attribution-small();
+    }
+    
+  }
+  
+}
+
+@media (max-width: $mobile) {
+  #map .attribution {
+    @include attribution-small();
+
+    &:hover {
+      @include attribution-large();
+    }
+  }
+}
+

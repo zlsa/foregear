@@ -1,0 +1,32 @@
+
+$material-icon-size: 24px;
+
+$sheet-radius: 3px;
+$sheet-padding: 8px;
+
+$attribution-size: 12px;
+
+@mixin sheet($background: white, $border: $sheet-radius) {
+  background-color: $background;
+
+  box-shadow: 0 1px 8px rgba(black, 0.4), 0 0 3px rgba(black, 0.5);
+  border-radius: $border;
+}
+
+@mixin button($background: white) {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+
+  transition: background-color 0.1s ease;
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &:active {
+    background-color: darken($background, 3);
+  }
+  
+}
