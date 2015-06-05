@@ -58,6 +58,17 @@ var LeafletMap = Map.extend({
     
   },
 
+  setView: function(location, zoom, animate) {
+    if(animate == undefined) animate = true;
+    this.map.setView(location, zoom, {
+      animate: animate
+    });
+  },
+
+  panTo: function(location) {
+    this.map.panTo(location);
+  },
+
   getZoom: function() {
     return this.map.getZoom();
   },
@@ -74,12 +85,12 @@ function map_init() {
   prop.map = new LeafletMap("map-container");
 }
 
-function map_static(location) {
+function map_static(location, zoom) {
   var url     = "http://api.tiles.mapbox.com/v4/";
   var mapid   = "mapbox.outdoors";
   var lat     = location[0];
   var lon     = location[1];
-  var zoom    = 8;
+  var zoom    = zoom;
   var size    = 1024;
   var width   = 720;
   var height  = 320;

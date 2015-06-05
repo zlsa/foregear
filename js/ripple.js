@@ -1,6 +1,6 @@
 
 function ripple_init() {
-  $(".button, .ripple").mousedown(ripple_down);
+  $("body").on("mousedown", ".button, .ripple", ripple_down);
   $("body").mouseup(ripple_up);
   $("body").on("dragend", ripple_up);
 }
@@ -26,6 +26,8 @@ function ripple_down(e) {
   setTimeout(function() {
     ripple.addClass("opening");
   }, 0);
+
+  return false;
 }
 
 function ripple_up() {

@@ -21,7 +21,8 @@ $image-height:         320px;
   top:  0;
   left: 0;
 
-  padding: $sheet-padding * 2;
+  padding-top:  $sheet-padding * 2;
+  padding-left: $sheet-padding * 2;
   
   width: $searchbar-width;
 
@@ -98,99 +99,131 @@ $image-height:         320px;
 
     z-index: 100;
 
-    .result {
+    .results {
 
-      &.airports {
+      position: relative;
+      top: 0;
+      width: 100%;
 
-        ul {
-          
-          li {
+      transition: opacity $sheet-anim ease, top $sheet-anim ease;
 
-            display: block;
-            @include sheet-middle();
+      &.hidden {
+        opacity: 0;
+        top: -8px;
+      }
+      
+      &.removed {
+        opacity: 0;
+        position: absolute;
+        top: 16px;
+      }
+      
+      ul {
+        
+        .result {
 
-            height: $result-height;
+          display: block;
+          @include sheet-middle();
 
-            .content {
+          height: $result-height;
 
-              font-family: "Roboto Condensed";
-              font-size: 14px;
-              list-style-type: none;
+          .content {
 
-              height: 100%;
+            font-family: "Roboto Condensed";
+            font-size: 14px;
+            list-style-type: none;
 
-              .title {
+            height: 100%;
 
-                padding: $sheet-padding * 2;
+            .title {
 
-                .icao {
-                  font-weight: bold;
-                  
-                  position: absolute;
-                  left: $menubutton-width + $sheet-padding * 2;
-                }
-
-                .distance {
-                  color: rgba(black, 0.54);
-                }
-                
-                .name {
-                  color: rgba(black, 0.26);
-                  float: right;
-                }
-
-              }
-
-              img {
-                display: block;
-              }
-
-            }
-
-            &.top {
-              @include sheet-top();
-            }
-            
-            &.bottom {
-              @include sheet-bottom();
-            }
-
-            &.top.bottom {
-              @include sheet();
-            }
-            
-            &.opened {
-              @include sheet();
-              margin: $sheet-padding 0;
+              background-color: white;
               
-              height: $result-height + $image-height;
+              position: absolute;
+
+              z-index: 100;
+              width: 100%;
+
+              padding: $sheet-padding * 2;
+
+              transition: background-color $sheet-anim ease, border-radius $sheet-anim ease;
+      
             }
+
+            .data {
+              position: absolute;
+              overflow: hidden;
+
+              top: 0;
+              left: 0;
+              
+              width: 100%;
+              height: 100%;
+            }
+
+          }
+
+          &.top {
+            @include sheet-top();
+          }
+          
+          &.bottom {
+            @include sheet-bottom();
             
           }
 
-          :first-child {
-            border-top: 0;
+          &.top.bottom {
+            @include sheet();
+            
+            .data {
+              border-radius: $sheet-radius;
+            }
+
           }
           
-          :last-child {
-            @include sheet-bottom();
-          }
+          &.opened {
+            @include sheet();
+            margin: $sheet-padding 0;
+            
+            height: $image-height;
+            
+            .title {
+              border-radius: $sheet-radius $sheet-radius 0 0;
+            }
 
+          }
+          
         }
 
+        :first-child {
+          border-top: 0;
+        }
+        
+        :last-child {
+          @include sheet-bottom();
+        }
+
+      }
+
+      &.no-results .text {
+        display: block;
+        padding-left: $menubutton-width - $sheet-padding * 2;
+        font-style: italic;
       }
       
     }
     
+    .results:not(.removed) + .results {
+      margin-top: $sheet-padding;
+    }
+    
   }
 
-  &.dropdown-open {
-    #searchbar {
-      border-radius: $sheet-radius $sheet-radius 0 0;
-    }
-    #dropdown {
-      border-radius: 0 0 $sheet-radius $sheet-radius;
-    }
+  &.dropdown-touching #searchbar {
+    border-radius: $sheet-radius $sheet-radius 0 0;
+  }
+  &.dropdown-open #dropdown {
+    border-radius: 0 0 $sheet-radius $sheet-radius;
   }
 
 }
@@ -219,7 +252,7 @@ $image-height:         320px;
 
     #dropdown {
       
-      .result.airports {
+      .results.airports {
         .name {
           display: none;
         }

@@ -50,5 +50,11 @@ $ripple-size: 256px;
     }
     
   }
+
+  &.light-ripples {
+    div {
+      background-color: rgba(white, 0.1);
+    }
+  }
   
 }

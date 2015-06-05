@@ -6,20 +6,19 @@
   transition: background-color 0.1s ease; }
   .button:hover, .ripple:hover {
     cursor: pointer; }
-  .button:active, .ripple:active {
-    background-color: #f7f7f7; }
 
 #search {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 16px;
+  padding-top: 16px;
+  padding-left: 16px;
   width: 480px;
   z-index: 100; }
   #search #searchbar {
     position: relative;
     background-color: white;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25), 0 0 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
     transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease;
     width: 100%;
@@ -27,7 +26,8 @@
     z-index: 500; }
     #search #searchbar .content {
       background-color: transparent;
-      border-top: 1px solid transparent; }
+      transition: border-radius 0.3s ease;
+      box-shadow: none; }
     #search #searchbar:after {
       display: none; }
     #search #searchbar input {
@@ -65,100 +65,126 @@
     box-sizing: content-box;
     width: 100%;
     z-index: 100; }
-    #search #dropdown .result.airports ul li {
-      display: block;
-      background-color: white;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25), 0 0 3px rgba(0, 0, 0, 0.5);
-      border-radius: 0;
-      transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    #search #dropdown .results {
       position: relative;
-      box-shadow: none;
-      border-radius: 0;
-      height: 48px; }
-      #search #dropdown .result.airports ul li .content {
-        background-color: transparent;
-        border-top: 1px solid transparent; }
-      #search #dropdown .result.airports ul li:after {
-        display: none; }
-      #search #dropdown .result.airports ul li .content {
-        background-color: white;
-        border-radius: 0;
-        border-top: 1px solid #ccc;
-        position: relative;
-        overflow: hidden;
-        z-index: 1000; }
-      #search #dropdown .result.airports ul li:after {
-        background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25), 0 0 3px rgba(0, 0, 0, 0.5);
-        display: block;
+      top: 0;
+      width: 100%;
+      transition: opacity 0.3s ease, top 0.3s ease; }
+      #search #dropdown .results.hidden {
+        opacity: 0;
+        top: -8px; }
+      #search #dropdown .results.removed {
+        opacity: 0;
         position: absolute;
-        content: '';
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%; }
-      #search #dropdown .result.airports ul li .content {
-        font-family: "Roboto Condensed";
-        font-size: 14px;
-        list-style-type: none;
-        height: 100%; }
-        #search #dropdown .result.airports ul li .content .title {
-          padding: 16px; }
-          #search #dropdown .result.airports ul li .content .title .icao {
-            font-weight: bold;
-            position: absolute;
-            left: 72px; }
-          #search #dropdown .result.airports ul li .content .title .distance {
-            color: rgba(0, 0, 0, 0.54); }
-          #search #dropdown .result.airports ul li .content .title .name {
-            color: rgba(0, 0, 0, 0.26);
-            float: right; }
-        #search #dropdown .result.airports ul li .content img {
-          display: block; }
-      #search #dropdown .result.airports ul li.top {
-        border-radius: 4px 4px 0 0; }
-        #search #dropdown .result.airports ul li.top:after {
-          border-radius: 4px 4px 0 0; }
-        #search #dropdown .result.airports ul li.top .content {
-          border-top: 0;
-          border-radius: 4px 4px 0 0; }
-      #search #dropdown .result.airports ul li.bottom {
-        border-radius: 0 0 4px 4px; }
-        #search #dropdown .result.airports ul li.bottom:after {
-          border-radius: 0 0 4px 4px; }
-        #search #dropdown .result.airports ul li.bottom .content {
-          border-radius: 0 0 4px 4px; }
-      #search #dropdown .result.airports ul li.top.bottom {
+        top: 16px; }
+      #search #dropdown .results ul .result {
+        display: block;
         background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25), 0 0 3px rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
-        transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease; }
-        #search #dropdown .result.airports ul li.top.bottom .content {
-          background-color: transparent;
-          border-top: 1px solid transparent; }
-        #search #dropdown .result.airports ul li.top.bottom:after {
-          display: none; }
-      #search #dropdown .result.airports ul li.opened {
-        background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25), 0 0 3px rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+        border-radius: 0;
         transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease;
-        margin: 8px 0;
-        height: 368px; }
-        #search #dropdown .result.airports ul li.opened .content {
+        position: relative;
+        box-shadow: none;
+        border-radius: 0;
+        height: 48px; }
+        #search #dropdown .results ul .result .content {
           background-color: transparent;
-          border-top: 1px solid transparent; }
-        #search #dropdown .result.airports ul li.opened:after {
+          transition: border-radius 0.3s ease;
+          box-shadow: none; }
+        #search #dropdown .results ul .result:after {
           display: none; }
-    #search #dropdown .result.airports ul :first-child {
-      border-top: 0; }
-    #search #dropdown .result.airports ul :last-child {
-      border-radius: 0 0 4px 4px; }
-      #search #dropdown .result.airports ul :last-child:after {
+        #search #dropdown .results ul .result .content {
+          background-color: white;
+          border-radius: 0;
+          box-shadow: 0 -1px 0 #ccc;
+          position: relative;
+          overflow: hidden;
+          z-index: 1000; }
+        #search #dropdown .results ul .result:after {
+          pointer-events: none;
+          background-color: white;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+          display: block;
+          position: absolute;
+          content: '';
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%; }
+        #search #dropdown .results ul .result .content {
+          font-family: "Roboto Condensed";
+          font-size: 14px;
+          list-style-type: none;
+          height: 100%; }
+          #search #dropdown .results ul .result .content .title {
+            background-color: white;
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            padding: 16px;
+            transition: background-color 0.3s ease, border-radius 0.3s ease; }
+          #search #dropdown .results ul .result .content .data {
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; }
+        #search #dropdown .results ul .result.top {
+          border-radius: 4px 4px 0 0; }
+          #search #dropdown .results ul .result.top:after {
+            border-radius: 4px 4px 0 0; }
+          #search #dropdown .results ul .result.top .content {
+            border-radius: 4px 4px 0 0; }
+        #search #dropdown .results ul .result.bottom {
+          border-radius: 0 0 4px 4px; }
+          #search #dropdown .results ul .result.bottom:after {
+            border-radius: 0 0 4px 4px; }
+          #search #dropdown .results ul .result.bottom .content {
+            border-radius: 0 0 4px 4px; }
+        #search #dropdown .results ul .result.top.bottom {
+          background-color: white;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+          border-radius: 4px;
+          transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease; }
+          #search #dropdown .results ul .result.top.bottom .content {
+            background-color: transparent;
+            transition: border-radius 0.3s ease;
+            box-shadow: none; }
+          #search #dropdown .results ul .result.top.bottom:after {
+            display: none; }
+          #search #dropdown .results ul .result.top.bottom .data {
+            border-radius: 4px; }
+        #search #dropdown .results ul .result.opened {
+          background-color: white;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+          border-radius: 4px;
+          transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+          margin: 8px 0;
+          height: 320px; }
+          #search #dropdown .results ul .result.opened .content {
+            background-color: transparent;
+            transition: border-radius 0.3s ease;
+            box-shadow: none; }
+          #search #dropdown .results ul .result.opened:after {
+            display: none; }
+          #search #dropdown .results ul .result.opened .title {
+            border-radius: 4px 4px 0 0; }
+      #search #dropdown .results ul :first-child {
+        border-top: 0; }
+      #search #dropdown .results ul :last-child {
         border-radius: 0 0 4px 4px; }
-      #search #dropdown .result.airports ul :last-child .content {
-        border-radius: 0 0 4px 4px; }
-  #search.dropdown-open #searchbar {
+        #search #dropdown .results ul :last-child:after {
+          border-radius: 0 0 4px 4px; }
+        #search #dropdown .results ul :last-child .content {
+          border-radius: 0 0 4px 4px; }
+      #search #dropdown .results.no-results .text {
+        display: block;
+        padding-left: 40px;
+        font-style: italic; }
+    #search #dropdown .results:not(.removed) + .results {
+      margin-top: 8px; }
+  #search.dropdown-touching #searchbar {
     border-radius: 4px 4px 0 0; }
   #search.dropdown-open #dropdown {
     border-radius: 0 0 4px 4px; }
@@ -171,7 +197,7 @@
     padding-right: 16px; }
   #search #searchbar .search.button {
     display: none; }
-  #search #dropdown .result.airports .name {
+  #search #dropdown .results.airports .name {
     display: none; } }
 
 /*# sourceMappingURL=search.css.map */

@@ -6,7 +6,7 @@
 
     <!-- googley fonts -->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Roboto:200,400,700|Roboto+Mono:400,700|Roboto+Condensed:400,700" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:200,400,700|Roboto+Mono:400,700|Roboto+Condensed:400,700,900" rel="stylesheet" />
 
     <!-- my stuff -->
     <link href="css/main.css" rel="stylesheet" />
@@ -15,17 +15,20 @@
     <link href="//api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css" rel="stylesheet" />
     <script src="https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js"></script>
 
-    <!-- more of their stuff -->
+    <!-- third party stuff -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/class.min.js"></script>
+    <script src="js/libs/levenshtein.js"></script>
 
     <!-- our stuff -->
     <script src="js/util.js"></script>
     
     <script src="js/ripple.js"></script>
     
-    <script src="js/map.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/airports.js"></script>
+    
+    <script src="js/map.js"></script>
     
     <script src="js/main.js"></script>
     
@@ -41,53 +44,12 @@
       </div>
       
       <div id="dropdown">
+
+        <!--
         
-        <div class="result airports">
-          <ul class="results">
-            
-            <li>
-              <div class="content">
-                <div class="title ripple">
-                  <span class="icao">KSFO</span>
-                  <span class="distance">3.2km</span>
-                  <span class="name">San Francisco International Airport</span>
-                </div>
-                <img class="map" />
-              </div>
-            </li>
-            
-            <li>
-              <div class="content">
-                <div class="title ripple">
-                  <span class="icao">KSFO</span>
-                  <span class="distance">3.2km</span>
-                  <span class="name">San Francisco International Airport</span>
-                </div>
-                <img class="map" />
-              </div>
-            </li>
-            
-            <li>
-              <div class="content">
-                <div class="title ripple">
-                  <span class="icao">KSFO</span>
-                  <span class="distance">3.2km</span>
-                  <span class="name">San Francisco International Airport</span>
-                </div>
-                <img class="map" />
-              </div>
-            </li>
-            
-            <li>
-              <div class="content">
-                <div class="title ripple">
-                  <span class="icao">KSFO</span>
-                  <span class="distance">3.2km</span>
-                  <span class="name">San Francisco International Airport</span>
-                </div>
-                <img class="map" />
-              </div>
-            </li>
+        <div class="results airports">
+          
+          <ul class="results-list">
             
             <li>
               <div class="content">
@@ -103,6 +65,8 @@
           </ul>
           
         </div>
+
+        -->
 
       </div>
 

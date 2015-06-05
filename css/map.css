@@ -6,8 +6,6 @@
   transition: background-color 0.1s ease; }
   .button:hover, .ripple:hover {
     cursor: pointer; }
-  .button:active, .ripple:active {
-    background-color: #f7f7f7; }
 
 #map {
   width: 100%;
