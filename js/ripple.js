@@ -2,6 +2,7 @@
 function ripple_init() {
   $(".button, .ripple").mousedown(ripple_down);
   $("body").mouseup(ripple_up);
+  $("body").on("dragend", ripple_up);
 }
 
 function ripple_down(e) {

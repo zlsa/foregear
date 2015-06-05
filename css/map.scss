@@ -98,7 +98,7 @@ $attribution-anim: 0.2s;
   
 }
 
-@media (max-width: $mobile) {
+@media (max-width: $small) {
   #map .attribution {
     @include attribution-small();
 

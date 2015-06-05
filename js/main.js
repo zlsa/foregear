@@ -10,4 +10,5 @@ $(document).ready(function() {
   prop_init();
   ripple_init();
   map_init();
+  search_init();
 });

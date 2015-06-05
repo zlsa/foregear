@@ -73,3 +73,24 @@ function map_init() {
   
   prop.map = new LeafletMap("map-container");
 }
+
+function map_static(location) {
+  var url     = "http://api.tiles.mapbox.com/v4/";
+  var mapid   = "mapbox.outdoors";
+  var lat     = location[0];
+  var lon     = location[1];
+  var zoom    = 8;
+  var size    = 1024;
+  var width   = 720;
+  var height  = 320;
+  var format  = "png";
+  url += mapid  + "/";
+  url += lon    + ",";
+  url += lat    + ",";
+  url += zoom   + "/";
+  url += width  + "x";
+  url += height + ".";
+  url += format + "?access_token=";
+  url += L.mapbox.accessToken;
+  return url;
+}

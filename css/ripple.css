@@ -1,4 +1,8 @@
 .ripple, .button {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
   position: relative;
   overflow: hidden; }
 
@@ -10,12 +14,12 @@
   width: 100%;
   heigth: 100%; }
   .ripples div {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 1000px !important;
     position: absolute;
-    opacity: 0.2;
-    width: 128px;
-    height: 128px;
+    opacity: 0.5;
+    width: 256px;
+    height: 256px;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.7s ease, opacity 0.7s ease; }
     .ripples div.opening {

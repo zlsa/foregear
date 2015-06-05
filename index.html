@@ -6,7 +6,7 @@
 
     <!-- googley fonts -->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Roboto:500,700|Roboto+Mono:400,300,700" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:200,400,700|Roboto+Mono:400,700|Roboto+Condensed:400,700" rel="stylesheet" />
 
     <!-- my stuff -->
     <link href="css/main.css" rel="stylesheet" />
@@ -22,13 +22,91 @@
     <!-- our stuff -->
     <script src="js/util.js"></script>
     
-    <script src="js/map.js"></script>
     <script src="js/ripple.js"></script>
+    
+    <script src="js/map.js"></script>
+    <script src="js/search.js"></script>
     
     <script src="js/main.js"></script>
     
   </head>
   <body>
+
+    <div id="search" class="dropdown-open">
+      
+      <div id="searchbar">
+        <a class="menu button"><i class="material-icons">menu</i></a>
+        <input type="text" class="search" placeholder="Search" autofocus="autofocus" />
+        <a class="search button"><i class="material-icons">search</i></a>
+      </div>
+      
+      <div id="dropdown">
+        
+        <div class="result airports">
+          <ul class="results">
+            
+            <li>
+              <div class="content">
+                <div class="title ripple">
+                  <span class="icao">KSFO</span>
+                  <span class="distance">3.2km</span>
+                  <span class="name">San Francisco International Airport</span>
+                </div>
+                <img class="map" />
+              </div>
+            </li>
+            
+            <li>
+              <div class="content">
+                <div class="title ripple">
+                  <span class="icao">KSFO</span>
+                  <span class="distance">3.2km</span>
+                  <span class="name">San Francisco International Airport</span>
+                </div>
+                <img class="map" />
+              </div>
+            </li>
+            
+            <li>
+              <div class="content">
+                <div class="title ripple">
+                  <span class="icao">KSFO</span>
+                  <span class="distance">3.2km</span>
+                  <span class="name">San Francisco International Airport</span>
+                </div>
+                <img class="map" />
+              </div>
+            </li>
+            
+            <li>
+              <div class="content">
+                <div class="title ripple">
+                  <span class="icao">KSFO</span>
+                  <span class="distance">3.2km</span>
+                  <span class="name">San Francisco International Airport</span>
+                </div>
+                <img class="map" />
+              </div>
+            </li>
+            
+            <li>
+              <div class="content">
+                <div class="title ripple">
+                  <span class="icao">KSFO</span>
+                  <span class="distance">3.2km</span>
+                  <span class="name">San Francisco International Airport</span>
+                </div>
+                <img class="map" />
+              </div>
+            </li>
+            
+          </ul>
+          
+        </div>
+
+      </div>
+
+    </div>
 
     <!-- whaddaya think this shit's for? -->
     <div id="map">
@@ -45,18 +123,24 @@
 
     <!-- lower right controls -->
     <div id="controls">
+      
       <div class="zoom-control buttons">
+        
         <a class="zoom-in  button" data-action="map-zoom-in" >
           <i class="material-icons">add</i>
         </a>
+        
         <a class="zoom-out button" data-action="map-zoom-out">
           <i class="material-icons">remove</i>
         </a>
+        
       </div>
+      
       <a class="aircraft-lock button" data-action="map-aircraft-lock">
         <i class="material-icons">my_location</i>
       </a>
+      
     </div>
-    
+
   </body>
 </html>

@@ -1,13 +1,19 @@
 
-$ripple-size: 128px;
+$ripple-size: 256px;
 
 .ripple, .button {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  
   position: relative;
   
   overflow: hidden;
 }
 
 .ripples {
+  
   position: absolute;
   
   top: 0;
@@ -19,13 +25,13 @@ $ripple-size: 128px;
   heigth: 100%;
 
   div {
-    background-color: rgba(black, 0.3);
+    background-color: rgba(black, 0.1);
 
     border-radius: 1000px !important;
     
     position: absolute;
 
-    opacity: 0.2;
+    opacity: 0.5;
 
     width:  $ripple-size;
     height: $ripple-size;
