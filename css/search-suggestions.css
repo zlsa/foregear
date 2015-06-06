@@ -105,8 +105,6 @@
     #search-suggestions ul {
       border-radius: 0 !important; }
       #search-suggestions ul li {
-        padding: 16px 0; }
-        #search-suggestions ul li .icon {
-          top: 16px; } }
+        padding: 16px 0; } }
 
 /*# sourceMappingURL=search-suggestions.css.map */

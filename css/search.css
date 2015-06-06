@@ -415,9 +415,7 @@
       #search #search-suggestions ul {
         border-radius: 0 !important; }
         #search #search-suggestions ul li {
-          padding: 16px 0; }
-          #search #search-suggestions ul li .icon {
-            top: 16px; } }
+          padding: 16px 0; } }
   #search.dropdown-touching #searchbar {
     border-radius: 4px 4px 0 0; }
   #search.dropdown-open #dropdown {
