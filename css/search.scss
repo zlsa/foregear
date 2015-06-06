@@ -39,6 +39,10 @@
   #search {
     width: 100%;
     padding-right:  $sheet-padding * 2;
+
+    #search-suggestions {
+      padding-right: $sheet-padding * 2;
+    }
   }
 }
 

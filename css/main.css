@@ -442,7 +442,9 @@
 @media (max-width: 640px) {
   #search {
     width: 100%;
-    padding-right: 16px; } }
+    padding-right: 16px; }
+    #search #search-suggestions {
+      padding-right: 16px; } }
 @media (max-width: 480px) {
   #search {
     padding: 0; }
