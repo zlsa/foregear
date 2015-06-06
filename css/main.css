@@ -455,7 +455,9 @@
         #search #dropdown .results .result:after, #search #dropdown .results .result .content, #search #dropdown .results .result .title, #search #dropdown .results .result .data {
           border-radius: 0 !important; }
         #search #dropdown .results .result.opened {
-          margin: 0 !important; } }
+          margin: 0 !important; }
+    #search #search-suggestions {
+      padding-right: 0; } }
 .button, .ripple {
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
