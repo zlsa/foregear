@@ -9,7 +9,7 @@
   bottom:  $sheet-padding * 2 + $attribution-size + $sheet-padding * 2;
   right: $sheet-padding * 2;
 
-  z-index: 1500;
+  z-index: 500;
   
   > .button, .buttons {
     @include sheet();
@@ -53,11 +53,22 @@
 
 }
 
-@media (max-width: $small) {
+@media (max-width: $mobile) {
+  #controls {
+
+    bottom:  $sheet-padding * 2 + $attribution-size * 2 + $sheet-padding * 4;
+    
+    .button {
+      padding: $sheet-padding * 2;
+    }
+    
+  }
+  
   #controls .zoom-control.buttons {
     opacity: 0;
     pointer-events: none;
     right: -$sheet-padding * 2;
   }
+
 }
 

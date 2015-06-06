@@ -1,0 +1,135 @@
+
+@import 'paper';
+
+@import 'search-values';
+
+#dropdown {
+
+  position: relative;
+  top: 0;
+
+  box-sizing: content-box;
+  
+  width: 100%;
+
+  z-index: 200;
+
+  .results {
+
+    position: relative;
+    top: 0;
+    width: 100%;
+
+    transition: opacity $sheet-anim ease, top $sheet-anim ease;
+
+    &.hidden {
+      opacity: 0;
+      top: -8px;
+    }
+    
+    &.removed {
+      opacity: 0;
+      position: absolute;
+      top: -16px;
+    }
+    
+    ul {
+      
+      .result {
+
+        display: block;
+        @include sheet-middle();
+
+        height: $result-height;
+
+        .content {
+
+          font-family: "Roboto Condensed";
+          font-size: 14px;
+          list-style-type: none;
+
+          height: 100%;
+
+          .title {
+
+            background-color: white;
+            
+            z-index: 100;
+            width: 100%;
+
+            padding: $sheet-padding * 2;
+
+            height: $result-height;
+
+            transition: background-color $sheet-anim ease, border-radius $sheet-anim ease;
+            
+          }
+
+          .data {
+            position: absolute;
+            overflow: hidden;
+
+            top: 0;
+            left: 0;
+            
+            width: 100%;
+            height: 100%;
+          }
+
+        }
+
+        &.top {
+          @include sheet-top();
+        }
+        
+        &.bottom {
+          @include sheet-bottom();
+          
+        }
+
+        &.top.bottom {
+          @include sheet();
+          
+          .data {
+            border-radius: $sheet-radius;
+          }
+
+        }
+        
+        &.opened {
+          @include sheet();
+          margin: $sheet-padding 0;
+          
+          height: $image-height;
+          
+          .title {
+            border-radius: $sheet-radius $sheet-radius 0 0;
+          }
+
+        }
+        
+      }
+
+      :first-child {
+        border-top: 0;
+      }
+      
+      :last-child {
+        @include sheet-bottom();
+      }
+
+    }
+
+    &.no-results .text {
+      display: block;
+      padding-left: $menubutton-width - $sheet-padding * 2;
+      font-style: italic;
+    }
+    
+  }
+  
+  .results:not(.removed) + .results {
+    margin-top: $sheet-padding;
+  }
+
+}

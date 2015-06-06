@@ -66,5 +66,14 @@
         opacity: 0; }
       #map .attribution:hover .text {
         opacity: 1; } }
+@media (max-width: 480px) {
+  #map .attribution .icon {
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    font-size: 48px; }
+  #map .attribution .text {
+    padding: 16px; } }
 
 /*# sourceMappingURL=map.css.map */

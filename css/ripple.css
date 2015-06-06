@@ -18,10 +18,10 @@
     border-radius: 1000px !important;
     position: absolute;
     opacity: 0.5;
-    width: 256px;
-    height: 256px;
+    width: 50vh;
+    height: 50vh;
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.7s ease, opacity 0.7s ease; }
+    transition: transform 1.0s ease, opacity 0.7s ease; }
     .ripples div.opening {
       transform: translate(-50%, -50%) scale(1);
       opacity: 1; }

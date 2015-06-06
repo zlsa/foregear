@@ -85,7 +85,7 @@ $attribution-anim: 0.2s;
       
       white-space: nowrap;
       
-      padding: 8px $sheet-padding * 2;
+      padding: $sheet-padding $sheet-padding * 2;
       
       transition: opacity $attribution-anim ease;
     }
@@ -106,5 +106,27 @@ $attribution-anim: 0.2s;
       @include attribution-large();
     }
   }
+}
+
+@media (max-width: $mobile) {
+  #map .attribution {
+
+    .icon {
+      right: $sheet-padding * 3 - 4px;
+      
+      width: 48px;
+      height: 48px;
+
+      padding: 0;
+
+      font-size: 48px;
+    }
+
+    .text {
+      padding: $sheet-padding * 2;
+    }
+    
+  }
+  
 }
 

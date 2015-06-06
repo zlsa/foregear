@@ -2,17 +2,8 @@
 @import 'device';
 @import 'paper';
 
-$searchbar-width: 480px;
-
-$menubutton-padding:   $sheet-padding * 2;
-$searchbutton-padding: $sheet-padding * 3;
-
-$menubutton-width:     $menubutton-padding * 2 + $material-icon-size;
-$searchbutton-width:   $searchbutton-padding * 2 + $material-icon-size;
-
-$result-height:        $sheet-padding * 2 * 2 + 16px;
-
-$image-height:         320px;
+@import 'search-values';
+@import 'airport-result';
 
 #search {
   
@@ -26,240 +17,60 @@ $image-height:         320px;
   
   width: $searchbar-width;
 
-  z-index: 100;
+  z-index: 1000;
 
-  #searchbar {
+  @import 'searchbar';
 
-    position: relative;
-
-    @include sheet();
-    
-    width: 100%;
-    height: 16px + $sheet-padding * 3;
-
-    z-index: 500;
-
-    input {
-      display: inline-block;
-      position: absolute;
-      
-      top: 0;
-      padding: $sheet-padding + 3px;
-      padding-left:  $menubutton-width;
-      padding-right: $sheet-padding * 2 + $searchbutton-width;
-      
-      width: 100%;
-    }
-
-    .menu.button {
-      box-sizing: content-box;
-      background-color: white;
-
-      border-radius: $sheet-radius 0 0 $sheet-radius;
-      
-      display: inline-block;
-      position: absolute;
-      
-      left: 0;
-
-      height: 24px;
-      padding: $sheet-padding $menubutton-padding;
-
-      z-index: 100;
-    }
-    
-    .search.button {
-      box-sizing: content-box;
-      background-color: white;
-      
-      border-left: 1px solid #ccc;
-      border-radius: 0 $sheet-radius $sheet-radius 0;
-      
-      display: inline-block;
-      position: absolute;
-      
-      right: 0;
-
-      height: 24px;
-      padding: $sheet-padding $searchbutton-padding;
-      
-      z-index: 100;
-    }
-
-  }
+  @import 'dropdown';
   
-  #dropdown {
-
-    position: relative;
-    top: 0;
-
-    box-sizing: content-box;
-    
-    width: 100%;
-
-    z-index: 100;
-
-    .results {
-
-      position: relative;
-      top: 0;
-      width: 100%;
-
-      transition: opacity $sheet-anim ease, top $sheet-anim ease;
-
-      &.hidden {
-        opacity: 0;
-        top: -8px;
-      }
-      
-      &.removed {
-        opacity: 0;
-        position: absolute;
-        top: 16px;
-      }
-      
-      ul {
-        
-        .result {
-
-          display: block;
-          @include sheet-middle();
-
-          height: $result-height;
-
-          .content {
-
-            font-family: "Roboto Condensed";
-            font-size: 14px;
-            list-style-type: none;
-
-            height: 100%;
-
-            .title {
-
-              background-color: white;
-              
-              position: absolute;
-
-              z-index: 100;
-              width: 100%;
-
-              padding: $sheet-padding * 2;
-
-              transition: background-color $sheet-anim ease, border-radius $sheet-anim ease;
-      
-            }
-
-            .data {
-              position: absolute;
-              overflow: hidden;
-
-              top: 0;
-              left: 0;
-              
-              width: 100%;
-              height: 100%;
-            }
-
-          }
-
-          &.top {
-            @include sheet-top();
-          }
-          
-          &.bottom {
-            @include sheet-bottom();
-            
-          }
-
-          &.top.bottom {
-            @include sheet();
-            
-            .data {
-              border-radius: $sheet-radius;
-            }
-
-          }
-          
-          &.opened {
-            @include sheet();
-            margin: $sheet-padding 0;
-            
-            height: $image-height;
-            
-            .title {
-              border-radius: $sheet-radius $sheet-radius 0 0;
-            }
-
-          }
-          
-        }
-
-        :first-child {
-          border-top: 0;
-        }
-        
-        :last-child {
-          @include sheet-bottom();
-        }
-
-      }
-
-      &.no-results .text {
-        display: block;
-        padding-left: $menubutton-width - $sheet-padding * 2;
-        font-style: italic;
-      }
-      
-    }
-    
-    .results:not(.removed) + .results {
-      margin-top: $sheet-padding;
-    }
-    
-  }
+  @import 'search-suggestions';
 
   &.dropdown-touching #searchbar {
     border-radius: $sheet-radius $sheet-radius 0 0;
   }
+
   &.dropdown-open #dropdown {
     border-radius: 0 0 $sheet-radius $sheet-radius;
   }
-
+  
 }
 
 @media (max-width: $small) {
   #search {
     width: 100%;
+    padding-right:  $sheet-padding * 2;
   }
 }
 
 @media (max-width: $mobile) {
   
   #search {
+
+    padding: 0;
     
-    #searchbar {
+    #dropdown {
       
-      input {
-        padding-right: $sheet-padding * 2;
-      }
+      border-radius: 0 !important;
       
-      .search.button {
-        display: none;
+      .results {
+
+        .result {
+          border-radius: 0 !important;
+
+          &:after, .content, .title, .data {
+            border-radius: 0 !important;
+          }
+          
+          &.opened {
+            margin: 0 !important;
+          }
+          
+        }
+        
       }
       
     }
 
-    #dropdown {
-      
-      .results.airports {
-        .name {
-          display: none;
-        }
-      }
-      
-    }
-    
   }
   
 }

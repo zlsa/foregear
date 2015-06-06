@@ -1,0 +1,17 @@
+
+@import 'paper';
+
+$searchbar-width: 480px;
+
+$menubutton-padding:   $sheet-padding * 2;
+$searchbutton-padding: $sheet-padding * 3;
+$clearbutton-padding:  $sheet-padding * 2;
+
+$menubutton-width:     $menubutton-padding * 2 + $material-icon-size;
+$searchbutton-width:   $searchbutton-padding * 2 + $material-icon-size;
+$clearbutton-width:    $clearbutton-padding * 2 + $material-icon-size;
+
+$result-height:        $sheet-padding * 2 * 2 + 16px;
+
+$image-height:         320px;
+

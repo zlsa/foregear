@@ -1,0 +1,112 @@
+.ripple, .button {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  position: relative;
+  overflow: hidden; }
+
+.ripples {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  heigth: 100%; }
+  .ripples div {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 1000px !important;
+    position: absolute;
+    opacity: 0.5;
+    width: 50vh;
+    height: 50vh;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 1.0s ease, opacity 0.7s ease; }
+    .ripples div.opening {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1; }
+    .ripples div.hidden {
+      opacity: 0; }
+  .ripples.light-ripples div {
+    background-color: rgba(255, 255, 255, 0.1); }
+
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
+
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
+
+#search-suggestions {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  width: 100%;
+  z-index: 300;
+  padding: 0 16px;
+  padding-right: 0;
+  transition: opacity 0.15s ease, top 0.15s ease; }
+  #search-suggestions ul {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+    border-radius: 0 0 4px 4px; }
+    #search-suggestions ul .content {
+      background-color: transparent;
+      transition: border-radius 0.15s ease;
+      box-shadow: none; }
+    #search-suggestions ul:after {
+      display: none; }
+    #search-suggestions ul:after {
+      border-radius: 0 0 4px 4px; }
+    #search-suggestions ul .content {
+      border-radius: 0 0 4px 4px; }
+    #search-suggestions ul li {
+      color: rgba(0, 0, 0, 0.54);
+      display: block;
+      list-style-type: none;
+      height: 48px;
+      padding: 16px 0; }
+      #search-suggestions ul li .text {
+        display: inline-block;
+        padding-left: 56px;
+        padding-right: 8px;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      #search-suggestions ul li .icon {
+        position: absolute;
+        top: 12px;
+        left: 16px; }
+      #search-suggestions ul li:hover {
+        cursor: pointer; }
+  #search-suggestions.hidden {
+    opacity: 0;
+    pointer-events: none;
+    top: 48px; }
+
+@media (max-width: 480px) {
+  #search-suggestions {
+    padding: 0; }
+    #search-suggestions ul {
+      border-radius: 0 !important; }
+      #search-suggestions ul li {
+        padding: 16px 0; }
+        #search-suggestions ul li .icon {
+          top: 16px; } }
+
+/*# sourceMappingURL=search-suggestions.css.map */

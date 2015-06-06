@@ -11,16 +11,16 @@
   position: absolute;
   bottom: 44px;
   right: 16px;
-  z-index: 1500; }
+  z-index: 500; }
   #controls > .button, #controls .buttons {
     background-color: white;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
-    transition: margin 0.3s ease, border-radius 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+    transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
     transition: right 0.2s ease-out, opacity 0.2s ease; }
     #controls > .button .content, #controls .buttons .content {
       background-color: transparent;
-      transition: border-radius 0.3s ease;
+      transition: border-radius 0.15s ease;
       box-shadow: none; }
     #controls > .button:after, #controls .buttons:after {
       display: none; }
@@ -54,7 +54,12 @@
   #controls .aircraft-lock.button.locked {
     color: #2196F3; }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
+  #controls {
+    bottom: 72px; }
+    #controls .button {
+      padding: 16px; }
+
   #controls .zoom-control.buttons {
     opacity: 0;
     pointer-events: none;

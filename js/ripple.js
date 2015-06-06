@@ -7,10 +7,12 @@ function ripple_init() {
 
 function ripple_down(e) {
   var el = $(this);
-  if(el.find(".ripples").length == 0)
-    el.append("<div class='ripples'></div>");
 
-  var ripples = el.find(".ripples");
+  if(el.find(" > .ripples").length == 0) {
+    el.append("<div class='ripples'></div>");
+  }
+
+  var ripples = el.find(" > .ripples");
   var ripple  = $("<div></div>");
   
   var x = e.pageX - el.offset().left;
@@ -26,6 +28,8 @@ function ripple_down(e) {
   setTimeout(function() {
     ripple.addClass("opening");
   }, 0);
+
+  hide_keyboard();
 
   return false;
 }

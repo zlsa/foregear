@@ -1,0 +1,98 @@
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
+
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
+
+#searchbar {
+  position: relative;
+  background-color: white;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+  width: 100%;
+  height: 40px;
+  z-index: 500; }
+  #searchbar .content {
+    background-color: transparent;
+    transition: border-radius 0.15s ease;
+    box-shadow: none; }
+  #searchbar:after {
+    display: none; }
+  #searchbar input {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    padding: 11px;
+    padding-left: 56px;
+    padding-right: 120px;
+    width: 100%; }
+  #searchbar .menu.button {
+    box-sizing: content-box;
+    background-color: white;
+    border-radius: 4px 0 0 4px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    height: 24px;
+    padding: 8px 16px;
+    transition: padding 0.15s ease;
+    z-index: 100; }
+  #searchbar .clear-search.button {
+    box-sizing: content-box;
+    color: rgba(0, 0, 0, 0.54);
+    display: inline-block;
+    position: absolute;
+    right: 68px;
+    height: 24px;
+    padding: 8px 16px;
+    opacity: 0;
+    transition: opacity 0.2s ease, right 0.2s ease;
+    z-index: 100; }
+    #searchbar .clear-search.button.visible {
+      opacity: 1;
+      right: 72px; }
+  #searchbar .search.button {
+    box-sizing: content-box;
+    background-color: white;
+    border-left: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    height: 24px;
+    padding: 8px 24px;
+    z-index: 100; }
+
+@media (max-width: 480px) {
+  #searchbar {
+    height: 56px;
+    border-radius: 0 !important; }
+    #searchbar .menu.button {
+      padding-top: 16px;
+      padding-bottom: 16px; }
+    #searchbar input {
+      padding-top: 19px;
+      padding-bottom: 19px;
+      padding-right: 16px; }
+    #searchbar .clear-search.button {
+      right: -4px;
+      padding: 16px 16px; }
+      #searchbar .clear-search.button.visible {
+        right: 0; }
+    #searchbar .search.button {
+      display: none; } }
+
+/*# sourceMappingURL=searchbar.css.map */

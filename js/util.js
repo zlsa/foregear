@@ -18,7 +18,7 @@ function clamp(a, v, b) {
   }
   if(a > v) return a;
   if(b < v) return b;
-  return a;
+  return v;
 }
 
 function lerp(il, i, ih, ol, oh) {
@@ -40,4 +40,57 @@ function radians(degrees) {
 function isspace(s) {
   return !(/\S/.test(s));
 };
-  
+
+var DEVICE = {
+  SQUASHED: 1024,
+  SMALL:    640,
+  MOBILE:   480
+};
+
+function hide_keyboard() {
+  var element = $("#search #searchbar input.search");
+  element.attr("readonly", "readonly");
+  element.attr("disabled", "true");
+  setTimeout(function() {
+    element.blur();
+    element.removeAttr("readonly");
+    element.removeAttr("disabled");
+  }, 100);
+}
+
+function first_element_compare(a, b) {
+  if(a[1] < b[1]) return -1;
+  if(a[1] > b[1]) return 1;
+  return 0;
+}
+
+function score_compare(a, b) {
+  if(a.score > b.score) return -1;
+  if(a.score < b.score) return 1;
+  return 0;
+}
+
+function normalize(s) {
+  return s.toLowerCase().replace(/[\s\.\-_]/g, "");
+}
+
+function similarity(a, b){
+  a = normalize(a);
+  b = normalize(b);
+
+  if(a == b) return 10000;
+  if(a.indexOf(b) >= 0 || b.indexOf(a) >= 0) {
+    var maxlength = Math.max(a.length, b.length);
+    var minlength = Math.min(a.length, b.length);
+    var difference = Math.abs(a.length - b.length);
+    return (difference / minlength);
+  }
+  return 0;
+}
+
+function to_km(n) {
+  n = (n / 1000);
+  if(n < 40) n = n.toFixed(1);
+  else       n = Math.round(n);
+  return n + "km";
+}
