@@ -220,6 +220,7 @@
       #search #dropdown .results.removed {
         opacity: 0;
         position: absolute;
+        pointer-events: none;
         top: -16px; }
       #search #dropdown .results ul .result {
         display: block;

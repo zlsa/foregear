@@ -75,6 +75,8 @@ function normalize(s) {
 }
 
 function similarity(a, b){
+  if(a.length <= 1 || b.length <= 1) return 0;
+  
   a = normalize(a);
   b = normalize(b);
 

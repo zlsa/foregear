@@ -188,11 +188,19 @@ var Results = Class.extend({
     }
 
     if(this.results.length == 1) this.results[0].action();
+
+    console.log(this.results.length);
   },
 
   remove: function() {
     console.log("removing '" + this.query + "'");
     this.html.addClass("removed");
+
+    var html = this.html;
+
+    setTimeout(function() {
+      html.remove();
+    }, 1000);
 
     this.removed = true;
   }
@@ -324,11 +332,12 @@ function search() {
 
   prop.search.results = new Results();
 
-  for(var i=0; i<results.length; i++) {
+  for(var i=0; i<Math.min(results.length, 6); i++) {
     prop.search.results.addResult(results[i]);
-    prop.search.results.add();
   }
 
+  prop.search.results.add();
+  
   hide_keyboard();
 
   search_update_suggestions();
