@@ -1,6 +1,7 @@
 
-var Map = Class.extend({
+var BasicMap = Events.extend({
   init: function() {
+    this._super();
     
     var map = this;
     
@@ -8,31 +9,6 @@ var Map = Class.extend({
       map.action.call(map, $(this).attr("data-action"));
     })
 
-    this.listeners = {};
-  },
-
-  bind: function(event, callback, data) {
-    if(!(event in this.listeners)) this.listeners[event] = [];
-    this.listeners[event].push([callback, data]);
-  },
-
-  unbind: function(event, callback) {
-    if(!(event in this.listeners)) return;
-    
-    for(var i=0; i<this.listeners[event].length; i++) {
-      if(this.listeners[event][i][0] == callback) {
-        this.listeners[event].splice(i, 1);
-        break;
-      }
-    }
-  },
-
-  fire: function(event, data) {
-    if(!(event in this.listeners)) return;
-
-    for(var i=0; i<this.listeners[event].length; i++) {
-      this.listeners[event][i][0].call(this, data, this.listeners[event][i][1]);
-    }
   },
 
   panTo: function(location) {
@@ -65,7 +41,7 @@ var Map = Class.extend({
   
 });
 
-var LeafletMap = Map.extend({
+var LeafletMap = BasicMap.extend({
   init: function(element, options) {
     if(!options) options = {};
 
@@ -125,6 +101,10 @@ var LeafletMap = Map.extend({
     marker.marker.addTo(this.map);
   },
 
+  removeMarker: function(marker) {
+    this.map.removeLayer(marker.marker);
+  },
+
   getCenter: function() {
     var c = this.map.getCenter();
     return [c.lat, c.lng];
@@ -132,23 +112,38 @@ var LeafletMap = Map.extend({
 
 });
 
-var Marker = Class.extend({
-  init: function() {
+var BasicMarker = Class.extend({
+  init: function(location, map) {
+    this.map = null;
     
+    this.map = map;
   },
 
   addTo: function(map) {
     map.addMarker(this);
+  },
+  
+  remove: function() {
+    this.map.removeMarker(this);
   }
 });
 
-var LeafletMarker = Marker.extend({
-  init: function(location) {
+var LeafletMarker = BasicMarker.extend({
+  init: function(location, map) {
+    this._super(location, map);
+    
     this.marker = L.marker(location, {
-
+      
     });
+    
+    if(this.map)
+      this.addTo(this.map);
   },
+
 });
+
+var Map    = LeafletMap;
+var Marker = LeafletMarker;
 
 function map_init() {
   L.mapbox.accessToken = "pk.eyJ1IjoiemxzYSIsImEiOiJuOGtheTRvIn0.nARpggDJzduPw-dkchKRpQ";

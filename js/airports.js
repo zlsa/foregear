@@ -56,6 +56,7 @@ var AirportResult = ImageResult.extend({
       return false;
     });
     
+    this.airport.addMarker();
   },
 
   action: function() {
@@ -93,6 +94,10 @@ var AirportResult = ImageResult.extend({
 
   remove: function() {
     prop.map.unbind("move", this.map_moved);
+  },
+  
+  hide: function() {
+    this.airport.remove();
   }
   
 });
@@ -137,8 +142,25 @@ var Airport = Class.extend({
     return this.icao.toUpperCase();
   },
 
+  addMarker: function() {
+    if(!this.marker)
+      this.marker = new Marker(this.location, prop.map);
+  },
+
   showOnMap: function() {
     prop.map.setView(this.location, 14);
+
+    this.addMarker();
+  },
+
+  removeMarker: function() {
+    if(this.marker)
+      this.marker.remove();
+    this.marker = null;
+  },
+
+  remove: function() {
+    this.removeMarker();
   },
 
   getStaticMapUrl: function() {

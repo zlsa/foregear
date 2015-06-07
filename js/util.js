@@ -80,7 +80,7 @@ function similarity(a, b){
   a = normalize(a);
   b = normalize(b);
 
-  if(a == b) return 10000;
+  if(a == b) return 1.5;
   if(a.indexOf(b) >= 0 || b.indexOf(a) >= 0) {
     var maxlength = Math.max(a.length, b.length);
     var minlength = Math.min(a.length, b.length);

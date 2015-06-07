@@ -73,8 +73,15 @@ var Result = Class.extend({
   
   close: function() {
     this.parent.set_open(-10);
-  }
+  },
   
+  hide: function() {
+
+  },
+  
+  remove: function() {
+
+  }
 });
 
 var NoResult = Result.extend({
@@ -217,6 +224,10 @@ var Results = Class.extend({
 
     var results = this;
 
+    for(var i=0; i<results.results.length; i++) {
+      results.results[i].hide();
+    }
+    
     setTimeout(function() {
       for(var i=0; i<results.results.length; i++) {
         results.results[i].remove();
@@ -309,8 +320,9 @@ function search_init() {
   $("#search-suggestions").on("click", "li", search_suggestion_clicked);
 
   $("#search #searchbar input.search").keyup(function(e) {
-    if(e.which == 13) search();
-    else              search_changed();
+    if(e.which == 13)      search();
+    else if(e.which == 27) search_hide_suggestions();
+    else                   search_changed();
   });
   
   $("#search #searchbar .search.button").click(search);
@@ -323,6 +335,9 @@ function search_init() {
   });
   $("#search #searchbar input.search").focus(function() {
     search_show_results();
+
+    if(prop.search.results && prop.search.results.getResults().length == 0)
+      search_show_suggestions();
   });
   
   search_changed();
@@ -494,8 +509,7 @@ function search_history_suggestions(query) {
   
   for(var i in history) {
     var name_score = similarity(i, query);
-    var use_score  = history[i] * 0.5;
-    var score = name_score * use_score;
+    var score = name_score;
 
     if(score >= 0.5) {
       var suggestion = new Suggestion("history", i, i);
