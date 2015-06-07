@@ -71,14 +71,16 @@
   
 }
 
-@media (max-width: $mobile) {
-  .results {
-
-    .result.airport .title .name {
-      display: none;
-      
-    }
-    
+@media (max-width: $small) {
+  .results .result.airport .title .marker {
+    padding: $sheet-padding * 2.5 $sheet-padding * 2;
   }
 
+}
+
+@media (max-width: $mobile) {
+  .results .result.airport .title .name {
+    display: none;
+  }
+  
 }

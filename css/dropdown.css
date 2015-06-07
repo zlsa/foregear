@@ -1,63 +1,181 @@
-/*
-Error: Undefined variable: "$small".
-        on line 158 of ./dropdown.scss
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
 
-153:   }
-154: 
-155: }
-156: 
-157: 
-158: @media (max-width: $small) {
-159:   
-160:   #dropdown {
-161:     padding: 0;
-162:     left: 0;
-163:     
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
 
-Backtrace:
-./dropdown.scss:158
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/script/tree/variable.rb:49:in `_perform'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/script/tree/node.rb:50:in `perform'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:536:in `block in run_interp_no_strip'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:534:in `map'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:534:in `run_interp_no_strip'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:541:in `run_interp'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:509:in `visit_media'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `block in with_base'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `map'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:368:in `_render_with_sourcemap'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/engine.rb:285:in `render_with_sourcemap'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `each'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/usr/lib/ruby/gems/2.2.0/gems/sass-3.4.13/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/home/zlsa/.gem/ruby/2.2.0/gems/listen-2.8.5/lib/listen/listener.rb:282:in `call'
-/home/zlsa/.gem/ruby/2.2.0/gems/listen-2.8.5/lib/listen/listener.rb:282:in `_process_changes'
-/home/zlsa/.gem/ruby/2.2.0/gems/listen-2.8.5/lib/listen/listener.rb:246:in `block in _wait_for_changes'
-/home/zlsa/.gem/ruby/2.2.0/gems/listen-2.8.5/lib/listen/listener.rb:229:in `loop'
-/home/zlsa/.gem/ruby/2.2.0/gems/listen-2.8.5/lib/listen/listener.rb:229:in `_wait_for_changes'
-/home/zlsa/.gem/ruby/2.2.0/gems/listen-2.8.5/lib/listen/listener.rb:318:in `block in _start_wait_thread'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Error: Undefined variable: \"$small\".\A         on line 158 of ./dropdown.scss\A \A 153:   }\A 154: \A 155: }\A 156: \A 157: \A 158: @media (max-width: $small) {\A 159:   \A 160:   #dropdown {\A 161:     padding: 0;\A 162:     left: 0;\A 163:     "; }
+#dropdown {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  box-sizing: content-box;
+  padding: 8px;
+  padding-top: 0;
+  padding-left: 16px;
+  max-height: 100vh;
+  width: 100%;
+  z-index: 200; }
+  #dropdown .results {
+    position: relative;
+    top: 0;
+    width: 100%;
+    transition: opacity 0.15s ease, top 0.15s ease; }
+    #dropdown .results.hidden {
+      opacity: 0;
+      top: -8px; }
+    #dropdown .results.removed {
+      opacity: 0;
+      position: absolute;
+      pointer-events: none;
+      top: -16px; }
+    #dropdown .results ul .result {
+      display: block;
+      background-color: white;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+      border-radius: 0;
+      transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+      position: relative;
+      box-shadow: none;
+      border-radius: 0;
+      height: 48px; }
+      #dropdown .results ul .result .content {
+        background-color: transparent;
+        transition: border-radius 0.15s ease;
+        box-shadow: none; }
+      #dropdown .results ul .result:after {
+        display: none; }
+      #dropdown .results ul .result .content {
+        background-color: white;
+        border-radius: 0;
+        box-shadow: 0 -1px 0 #ccc;
+        position: relative;
+        overflow: hidden;
+        z-index: 1000; }
+      #dropdown .results ul .result:after {
+        pointer-events: none;
+        background-color: white;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+        display: block;
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%; }
+      #dropdown .results ul .result .content {
+        font-family: "Roboto Condensed";
+        font-size: 14px;
+        list-style-type: none;
+        height: 100%; }
+        #dropdown .results ul .result .content .title {
+          background-color: white;
+          z-index: 100;
+          width: 100%;
+          padding: 16px 16px;
+          height: 48px;
+          transition: background-color 0.15s ease, border-radius 0.15s ease; }
+        #dropdown .results ul .result .content .data {
+          position: absolute;
+          overflow: hidden;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%; }
+          #dropdown .results ul .result .content .data > img {
+            opacity: 0;
+            transition: opacity 1s ease; }
+          #dropdown .results ul .result .content .data.image-loaded img {
+            opacity: 1; }
+      #dropdown .results ul .result.top {
+        margin-top: 10px;
+        border-radius: 4px 4px 0 0; }
+        #dropdown .results ul .result.top .content, #dropdown .results ul .result.top:after {
+          border-radius: 4px 4px 0 0; }
+        #dropdown .results ul .result.top .content {
+          box-shadow: none; }
+      #dropdown .results ul .result.bottom {
+        border-radius: 0 0 4px 4px; }
+        #dropdown .results ul .result.bottom .content, #dropdown .results ul .result.bottom:after {
+          border-radius: 0 0 4px 4px; }
+      #dropdown .results ul .result.top.bottom {
+        background-color: white;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease; }
+        #dropdown .results ul .result.top.bottom .content {
+          background-color: transparent;
+          transition: border-radius 0.15s ease;
+          box-shadow: none; }
+        #dropdown .results ul .result.top.bottom:after {
+          display: none; }
+        #dropdown .results ul .result.top.bottom .data {
+          border-radius: 4px; }
+      #dropdown .results ul .result.opened {
+        background-color: white;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+        margin: 8px 0;
+        height: 320px; }
+        #dropdown .results ul .result.opened .content {
+          background-color: transparent;
+          transition: border-radius 0.15s ease;
+          box-shadow: none; }
+        #dropdown .results ul .result.opened:after {
+          display: none; }
+        #dropdown .results ul .result.opened .title {
+          border-radius: 4px 4px 0 0; }
+    #dropdown .results ul :first-child {
+      border-top: 0; }
+    #dropdown .results ul :last-child {
+      border-radius: 0 0 4px 4px; }
+      #dropdown .results ul :last-child .content, #dropdown .results ul :last-child:after {
+        border-radius: 0 0 4px 4px; }
+    #dropdown .results.no-results .text {
+      display: block;
+      padding-left: 40px;
+      font-style: italic; }
+  #dropdown .results:not(.removed) + .results {
+    margin-top: 8px; }
+
+@media (max-width: 640px) {
+  #dropdown {
+    padding: 0;
+    left: 0;
+    overflow-y: scroll;
+    border-radius: 0 !important; }
+    #dropdown .results {
+      padding-bottom: 128px; }
+      #dropdown .results .result {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        height: 64px !important; }
+        #dropdown .results .result .content .title {
+          padding-top: 24px !important;
+          padding-bottom: 24px !important;
+          height: 64px !important; }
+        #dropdown .results .result.top .content {
+          box-shadow: none !important; }
+        #dropdown .results .result.opened .content {
+          box-shadow: 0 -1px 0 #ccc !important; }
+        #dropdown .results .result:after, #dropdown .results .result .content, #dropdown .results .result .title, #dropdown .results .result .data {
+          border-radius: 0 !important; }
+        #dropdown .results .result.opened {
+          height: 320px !important; }
+    #dropdown.results-hidden .results {
+      opacity: 0;
+      top: -8px; } }
+
+/*# sourceMappingURL=dropdown.css.map */

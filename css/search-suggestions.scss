@@ -79,7 +79,13 @@
       border-radius: 0 !important;
 
       li {
-        padding: $sheet-padding * 2 0;
+        height: $result-height-mobile;
+        padding: $sheet-padding * 3 0;
+        
+        .icon {
+          top: 4px + $sheet-padding * 2;
+        }
+        
       }
       
     }

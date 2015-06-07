@@ -42,6 +42,10 @@ var Result = Class.extend({
 
   },
 
+  load: function() {
+
+  },
+
   opened: function() {
     this.load();
   },

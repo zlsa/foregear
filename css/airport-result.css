@@ -49,6 +49,9 @@
   left: -100%;
   margin: auto; }
 
+@media (max-width: 640px) {
+  .results .result.airport .title .marker {
+    padding: 20px 16px; } }
 @media (max-width: 480px) {
   .results .result.airport .title .name {
     display: none; } }

@@ -87,6 +87,9 @@
   left: -100%;
   margin: auto; }
 
+@media (max-width: 640px) {
+  .results .result.airport .title .marker {
+    padding: 20px 16px; } }
 @media (max-width: 480px) {
   .results .result.airport .title .name {
     display: none; } }
@@ -275,7 +278,7 @@
             background-color: white;
             z-index: 100;
             width: 100%;
-            padding: 16px;
+            padding: 16px 16px;
             height: 48px;
             transition: background-color 0.15s ease, border-radius 0.15s ease; }
           #search #dropdown .results ul .result .content .data {
@@ -348,16 +351,23 @@
       overflow-y: scroll;
       border-radius: 0 !important; }
       #search #dropdown .results {
-        padding-bottom: 8px; }
+        padding-bottom: 128px; }
         #search #dropdown .results .result {
           border-radius: 0 !important;
-          margin: 0 !important; }
+          margin: 0 !important;
+          height: 64px !important; }
+          #search #dropdown .results .result .content .title {
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+            height: 64px !important; }
           #search #dropdown .results .result.top .content {
             box-shadow: none !important; }
           #search #dropdown .results .result.opened .content {
             box-shadow: 0 -1px 0 #ccc !important; }
           #search #dropdown .results .result:after, #search #dropdown .results .result .content, #search #dropdown .results .result .title, #search #dropdown .results .result .data {
             border-radius: 0 !important; }
+          #search #dropdown .results .result.opened {
+            height: 320px !important; }
       #search #dropdown.results-hidden .results {
         opacity: 0;
         top: -8px; } }
@@ -464,7 +474,10 @@
       #search #search-suggestions ul {
         border-radius: 0 !important; }
         #search #search-suggestions ul li {
-          padding: 16px 0; } }
+          height: 64px;
+          padding: 24px 0; }
+          #search #search-suggestions ul li .icon {
+            top: 20px; } }
   #search.dropdown-touching #searchbar {
     border-radius: 4px 4px 0 0; }
   #search.dropdown-open #dropdown {

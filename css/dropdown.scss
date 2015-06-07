@@ -1,4 +1,7 @@
 
+
+@import 'device';
+
 @import 'paper';
 
 @import 'search-values';
@@ -64,7 +67,7 @@
             z-index: 100;
             width: 100%;
 
-            padding: $sheet-padding * 2;
+            padding: $sheet-padding * 2 $sheet-padding * 2;
 
             height: $result-height;
 
@@ -167,12 +170,26 @@
     
     .results {
 
-      padding-bottom: $sheet-padding;
+      padding-bottom: $result-height-mobile * 2;
 
       .result {
+        
         border-radius: 0 !important;
         
         margin: 0 !important;
+
+        height: $result-height-mobile !important;
+        
+        .content {
+
+          .title {
+            padding-top: $sheet-padding * 3 !important;
+            padding-bottom: $sheet-padding * 3 !important;
+            
+            height: $result-height-mobile !important;
+          }
+          
+        }
 
         &.top .content {
           box-shadow: none !important;
@@ -186,6 +203,10 @@
           border-radius: 0 !important;
         }
         
+        &.opened {
+          height: $image-height !important;
+        }
+        
       }
       
     }
@@ -195,6 +216,7 @@
         opacity: 0;
         top: -8px;
       }
+      
     }
     
   }
