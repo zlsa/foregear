@@ -1,5 +1,5 @@
 
-$ripple-size: 50vh;
+$ripple-size: 75vh;
 
 .ripple, .button {
   -webkit-user-select: none;
@@ -37,7 +37,7 @@ $ripple-size: 50vh;
     
     transform: translate(-50%, -50%) scale(0.0);
 
-    transition: transform 1.0s ease, opacity 0.7s ease;
+    transition: transform 2.0s ease, opacity 0.7s ease;
 
     &.opening {
       transform: translate(-50%, -50%) scale(1.0);
@@ -50,9 +50,9 @@ $ripple-size: 50vh;
     
   }
 
-  &.light-ripples {
+  &.light {
     div {
-      background-color: rgba(white, 0.1);
+      background-color: rgba(white, 0.2);
     }
   }
 

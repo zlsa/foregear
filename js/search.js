@@ -43,11 +43,11 @@ var Result = Class.extend({
   },
 
   opened: function() {
-
+    this.load();
   },
 
   action: function() {
-
+    
   },
 
   setCanOpen: function(openable) {
@@ -63,6 +63,10 @@ var Result = Class.extend({
     return this.openable;
   },
 
+  open: function() {
+    this.parent.set_open(this.index);
+  },
+  
   close: function() {
     this.parent.set_open(-10);
   }
@@ -98,6 +102,8 @@ var Results = Class.extend({
     this.open  = -10;
 
     this.removed = false;
+    
+    prop.map.bind("move", this.map_moved, this);
   },
 
   getResults: function() {
@@ -146,12 +152,11 @@ var Results = Class.extend({
         $(this).addClass("bottom top opened");
       } else if(i - 1 == index) {
         $(this).addClass("top");
-        console.log("added top because we're beneath the index");
       } else if(i + 1 == index) {
         $(this).addClass("bottom");
       }
 
-      if(i == 0 && this.open != 0) {
+      if(i == 0 && this.open == 0) {
         $(this).addClass("top");
       }
       if(i == length - 1) {
@@ -172,7 +177,7 @@ var Results = Class.extend({
 
     if(this.open >= 0)
       this.results[this.open].opened();
-    
+
     search_restyle();
   },
 
@@ -187,22 +192,67 @@ var Results = Class.extend({
       this.addToDropdown();
     }
 
-    if(this.results.length == 1) this.results[0].action();
+    if(this.results.length == 1) {
+      this.results[0].open();
+      this.results[0].action();
+      if($(window).width() <= DEVICE.SMALL) {
+        search_hide_results();
+      }
+    }
 
     console.log(this.results.length);
+  },
+
+  map_moved: function(location, that) {
+//    that.set_open(-10);
   },
 
   remove: function() {
     console.log("removing '" + this.query + "'");
     this.html.addClass("removed");
 
-    var html = this.html;
+    var results = this;
 
     setTimeout(function() {
-      html.remove();
+      for(var i=0; i<results.results.length; i++) {
+        results.results[i].remove();
+      }
+      results.html.remove();
     }, 1000);
 
     this.removed = true;
+  }
+  
+});
+
+var ImageResult = Result.extend({
+  init: function(airport) {
+    this._super();
+
+    this.img = $("<img />");
+    this.img_src = "";
+    this.img_color = "#f0f";
+    
+    var result = this;
+    this.img.on("load", function() {
+      setTimeout(function() {
+        result.image_loaded();
+      }, 100);
+    });
+
+    this.data.append(this.img);
+  },
+
+  load: function() {
+    this.img.attr("src", this.img_src);
+    
+    this.data.css({
+      backgroundColor: this.img_color
+    });
+  },
+
+  image_loaded: function() {
+    this.data.addClass("image-loaded");
   }
   
 });
@@ -264,10 +314,12 @@ function search_init() {
   
   $("#search #searchbar input.search").blur(function() {
     setTimeout(function() {
-//      search_hide_suggestions();
-    }, 100);
+      search_hide_suggestions();
+    }, 150);
   });
-  $("#search #searchbar input.search").focus(search_update_suggestions);
+  $("#search #searchbar input.search").focus(function() {
+    search_show_results();
+  });
   
   search_changed();
 }
@@ -303,12 +355,27 @@ function search_changed() {
 }
 
 function search_get_query() {
-  return $("#search #searchbar input.search").val();
+  prop.search.query = $("#search #searchbar input.search").val();
+  return prop.search.query;
 }
 
 function search_set_query(query) {
   prop.search.query = query;
   $("#search #searchbar input.search").val(query);
+}
+
+// search history
+
+function search_history_add(query) {
+  if(!("history" in localStorage)) var history = {};
+  else                             var history = JSON.parse(localStorage["history"]);
+  if(!(query in history)) history[query] = 0;
+  history[query] += 1;
+  localStorage["history"] = JSON.stringify(history);
+}
+
+function search_history_get() {
+  return JSON.parse(localStorage["history"] || "{}");
 }
 
 // actual search
@@ -319,6 +386,8 @@ function search() {
   if(isspace(query)) return;
 
   search_remove_all();
+
+  search_history_add(query);
 
   var results = [];
   
@@ -340,11 +409,9 @@ function search() {
   
   hide_keyboard();
 
-  search_update_suggestions();
-
-  search_restyle_searchbox();
+  search_hide_suggestions();
   
-  $("#search-suggestions").addClass("hidden");
+  search_show_results();
 }
 
 // misc utility functions
@@ -403,6 +470,7 @@ function search_get_suggestions(query) {
 
   if(query != "") {
     suggestions.push.apply(suggestions, airport_suggestions(query));
+    suggestions.push.apply(suggestions, search_history_suggestions(query));
   }
 
   suggestions = suggestions.sort(score_compare);
@@ -413,6 +481,25 @@ function search_get_suggestions(query) {
     prop.search.suggestions.push(suggestions[i]);
   }
 
+}
+
+function search_history_suggestions(query) {
+  var history = search_history_get();
+
+  var results = [];
+  
+  for(var i in history) {
+    var name_score = similarity(i, query);
+    var use_score  = history[i] * 0.5;
+    var score = name_score * use_score;
+
+    if(score >= 0.5) {
+      var suggestion = new Suggestion("history", i, i);
+      suggestion.setScore(score);
+      results.push(suggestion);
+    }
+  }
+  return results;
 }
 
 function search_update_suggestions() {
@@ -447,6 +534,16 @@ function search_show_suggestions() {
 function search_hide_suggestions() {
   $("#search-suggestions").addClass("hidden");
   $("#dropdown").removeClass("suggestions-visible");
+
+  setTimeout(search_restyle_searchbox, 10);
+}
+
+function search_show_results() {
+  $("#dropdown").removeClass("results-hidden");
+}
+
+function search_hide_results() {
+  $("#dropdown").addClass("results-hidden");
 
   setTimeout(search_restyle_searchbox, 10);
 }

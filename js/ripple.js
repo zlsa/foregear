@@ -15,6 +15,9 @@ function ripple_down(e) {
   var ripples = el.find(" > .ripples");
   var ripple  = $("<div></div>");
   
+  if(el.hasClass("ripple-light"))
+    ripples.addClass("light");
+
   var x = e.pageX - el.offset().left;
   var y = e.pageY - el.offset().top;
 

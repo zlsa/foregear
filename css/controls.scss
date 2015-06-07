@@ -56,8 +56,6 @@
 @media (max-width: $mobile) {
   #controls {
 
-    bottom:  $sheet-padding * 2 + $attribution-size * 2 + $sheet-padding * 4;
-    
     .button {
       padding: $sheet-padding * 2;
     }

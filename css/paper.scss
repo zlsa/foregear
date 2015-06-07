@@ -105,23 +105,21 @@ $paper-shadow-small-radius:  3.0px,  3.7px,  4.3px,  5.0px;
 @mixin sheet-top($background: white, $border: $sheet-radius) {
   border-radius: $border $border 0 0;
 
+  .content,
   &:after {
     border-radius: $border $border 0 0;
   }
 
   .content {
-    border-radius: $border $border 0 0;
+    box-shadow: none;
   }
 }
 
 @mixin sheet-bottom($background: white, $border: $sheet-radius) {
   border-radius: 0 0 $border $border;
 
+  .content,
   &:after {
-    border-radius: 0 0 $border $border;
-  }
-
-  .content {
     border-radius: 0 0 $border $border;
   }
 }

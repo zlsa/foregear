@@ -96,3 +96,7 @@ function to_km(n) {
   else       n = Math.round(n);
   return n + "km";
 }
+
+function rand(l, h) {
+  return lerp(0, Math.random(), 1, l, h);
+}

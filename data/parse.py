@@ -47,8 +47,7 @@ def parse_airports(filename="airports.csv"):
       elif data["type"] == "seaplane_base":  data["type"] = "seaport"
       elif data["type"] == "balloonport":    data["type"] = "balloonport"
 
-      if data["iso_country"] == "US":
-        airports.append(data)
+      airports.append(data)
 
       rows += 1
   return airports

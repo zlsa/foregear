@@ -12,9 +12,6 @@
   top:  0;
   left: 0;
 
-  padding-top:  $sheet-padding * 2;
-  padding-left: $sheet-padding * 2;
-  
   width: $searchbar-width;
 
   z-index: 1000;
@@ -36,50 +33,13 @@
 }
 
 @media (max-width: $small) {
-  #search {
-    width: 100%;
-    padding-right:  $sheet-padding * 2;
-
-    #search-suggestions {
-      padding-right: $sheet-padding * 2;
-    }
-  }
-}
-
-@media (max-width: $mobile) {
   
   #search {
 
     padding: 0;
-    
-    #dropdown {
-      
-      border-radius: 0 !important;
-      
-      .results {
+    width: 100%;
 
-        .result {
-          border-radius: 0 !important;
-
-          &:after, .content, .title, .data {
-            border-radius: 0 !important;
-          }
-          
-          &.opened {
-            margin: 0 !important;
-          }
-          
-        }
-        
-      }
-      
-    }
-
-    #search-suggestions {
-      padding-right: 0;
-    }
-    
   }
-  
+    
 }
 

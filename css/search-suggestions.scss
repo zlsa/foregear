@@ -6,17 +6,20 @@
 @import 'search-values';
 
 #search-suggestions {
+
+  box-sizing: content-box;
   
   position: absolute;
   top: $sheet-padding * 2 + $sheet-padding * 3 + 16px;
 
-  left: 0;
+  left: $sheet-padding;
+  right: $sheet-padding;
   
   width: 100%;
 
   z-index: 300;
 
-  padding: 0 $sheet-padding * 2;
+  padding: 0 $sheet-padding;
   padding-right: 0;
 
   transition: opacity $sheet-anim ease, top $sheet-anim ease;
@@ -67,9 +70,10 @@
   
 }
 
-@media (max-width: $mobile) {
+@media (max-width: $small) {
   #search-suggestions {
     padding: 0;
+    left: 0;
 
     ul {
       border-radius: 0 !important;

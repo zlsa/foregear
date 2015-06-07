@@ -72,18 +72,13 @@
 }
 
 @media (max-width: $mobile) {
-  .results.airports {
+  .results {
 
-    .result {
-
-      .title {
-        .name {
-          display: none;
-        }
-      }
+    .result.airport .title .name {
+      display: none;
       
     }
     
   }
-  
+
 }

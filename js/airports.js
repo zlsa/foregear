@@ -11,7 +11,7 @@ var AIRPORT = {
 
 // search stuffs
 
-var AirportResult = Result.extend({
+var AirportResult = ImageResult.extend({
   init: function(airport) {
     this._super();
 
@@ -27,6 +27,10 @@ var AirportResult = Result.extend({
   generate: function() {
     this._super();
 
+    var color = tinycolor("#eba070");
+    this.img_color = color.desaturate(rand(5, 40)).spin(rand(-20, 20));
+    this.img_src = this.airport.getStaticMapUrl();
+
     this.title.append("<span class='marker button'><i class='material-icons'>location_on</i></span>");
     this.title.append("<span class='icao'></span>");
     this.title.append("<span class='distance'></span>");
@@ -36,16 +40,19 @@ var AirportResult = Result.extend({
     this.title.find(".distance").text(to_km(map_distance(this.airport.location, prop.map.getCenter())));
     this.title.find(".name").text(this.airport.name);
 
-    this.data.append("<img class='map' />");
-
-    this.load();
-    
     var marker = this.title.find(".marker.button");
     marker.attr("title", "show " + this.airport.getIcao() + " on the map");
     var airport_result = this;
     
     marker.click(function(e) {
       airport_result.marker_clicked.call(airport_result);
+      return false;
+    });
+    
+    this.data.addClass("ripple");
+    
+    this.data.click(function(e) {
+      airport_result.marker_clicked.call(airport_result, true);
       return false;
     });
     
@@ -56,7 +63,7 @@ var AirportResult = Result.extend({
   },
 
   load: function() {
-    this.data.find("img.map").attr("src", this.airport.getStaticMapUrl());
+    this._super();
   },
 
   closed: function() {
@@ -71,15 +78,20 @@ var AirportResult = Result.extend({
     console.log("opening " + this.airport.icao);
   },
 
-  marker_clicked: function() {
+  marker_clicked: function(do_not_close) {
     this.airport.showOnMap();
+
+    if(!do_not_close)
+      this.close();
+
+    search_hide_results();
   },
 
   map_moved: function(location, that) {
     that.title.find(".distance").text(to_km(map_distance(that.airport.location, prop.map.getCenter())));
   },
 
-  removed: function() {
+  remove: function() {
     prop.map.unbind("move", this.map_moved);
   }
   
@@ -152,6 +164,8 @@ function airport_init() {
   $.get("data/airports.json")
     .done(function(data) {
       prop.airport.list = data;
+
+      console.log("loaded " + data.length + " airports");
     })
     .fail(function() {
       console.log(arguments);
@@ -196,8 +210,6 @@ function airport_search(query) {
     results.push.apply(results, airport_search_icao(q[i]));
   }
 
-  console.log(results);
-
   return results;
 
 }
@@ -210,16 +222,25 @@ function airport_search_icao(query, suggestion) {
   for(var i=0; i<prop.airport.list.length; i++) {
     var airport_icao = prop.airport.list[i][AIRPORT.ICAO];
     var icao_score   = similarity(airport_icao, icao) * 10;
-    
+
     var airport_name = prop.airport.list[i][AIRPORT.NAME];
-    var name_score   = similarity(airport_name, query);
+    var name_score = 0;
+    if(query.length > 4) {
+      var name_score = similarity(airport_name, query);
+    }
     
     if((name_score + icao_score) >= 0.6) {
       var airport        = airport_get(airport_icao);
+      
       var distance_score = 0;
       distance_score     = clerp(0, map_distance(prop.map.getCenter(), airport.location), 1000 * 1000, 0.7, 1);
       distance_score    *= clerp(0, map_distance(prop.map.getCenter(), airport.location), 1000 * 10, 10, 1);
-      var score          = (name_score + icao_score) * distance_score * 10;
+
+      var size_score     = 0;
+      if(airport.type == "medium") size_score = 1;
+      if(airport.type == "large")  size_score = 3;
+      
+      var score          = (name_score + icao_score + size_score) * distance_score * 10;
 
       if(suggestion) {
         var suggestion   = new Suggestion("airport", airport.icao, airport.formatSuggestion());

@@ -55,10 +55,8 @@
     color: #2196F3; }
 
 @media (max-width: 480px) {
-  #controls {
-    bottom: 72px; }
-    #controls .button {
-      padding: 16px; }
+  #controls .button {
+    padding: 16px; }
 
   #controls .zoom-control.buttons {
     opacity: 0;

@@ -8,6 +8,10 @@
     cursor: pointer; }
 
 #map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
   width: 100%;
   height: 100%; }
   #map #map-container {
@@ -68,12 +72,6 @@
         opacity: 1; } }
 @media (max-width: 480px) {
   #map .attribution .icon {
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    font-size: 48px; }
-  #map .attribution .text {
-    padding: 16px; } }
+    right: 22px; } }
 
 /*# sourceMappingURL=map.css.map */

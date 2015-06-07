@@ -50,7 +50,7 @@
   margin: auto; }
 
 @media (max-width: 480px) {
-  .results.airports .result .title .name {
+  .results .result.airport .title .name {
     display: none; } }
 
 /*# sourceMappingURL=airport-result.css.map */
