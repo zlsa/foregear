@@ -76,20 +76,15 @@
           }
 
           .data {
-            position: absolute;
             overflow: hidden;
 
-            top: 0;
-            left: 0;
-            
+            height: $image-height;
             width: 100%;
-            height: 100%;
 
             > img {
               opacity: 0;
 
               transition: opacity 1s ease;
-
             }
             
             &.image-loaded img {
@@ -123,7 +118,7 @@
           @include sheet();
           margin: $sheet-padding 0;
           
-          height: $image-height;
+          height: $image-height + $result-height;
           
           .title {
             border-radius: $sheet-radius $sheet-radius 0 0;
@@ -204,7 +199,7 @@
         }
         
         &.opened {
-          height: $image-height !important;
+          height: $image-height + $result-height-mobile !important;
         }
         
       }

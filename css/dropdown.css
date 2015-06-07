@@ -87,12 +87,9 @@
           height: 48px;
           transition: background-color 0.15s ease, border-radius 0.15s ease; }
         #dropdown .results ul .result .content .data {
-          position: absolute;
           overflow: hidden;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%; }
+          height: 320px;
+          width: 100%; }
           #dropdown .results ul .result .content .data > img {
             opacity: 0;
             transition: opacity 1s ease; }
@@ -128,7 +125,7 @@
         border-radius: 4px;
         transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
         margin: 8px 0;
-        height: 320px; }
+        height: 368px; }
         #dropdown .results ul .result.opened .content {
           background-color: transparent;
           transition: border-radius 0.15s ease;
@@ -173,7 +170,7 @@
         #dropdown .results .result:after, #dropdown .results .result .content, #dropdown .results .result .title, #dropdown .results .result .data {
           border-radius: 0 !important; }
         #dropdown .results .result.opened {
-          height: 320px !important; }
+          height: 384px !important; }
     #dropdown.results-hidden .results {
       opacity: 0;
       top: -8px; } }
