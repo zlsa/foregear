@@ -19,7 +19,6 @@
 .results .result.airport .title .marker, .results .result.airport .title .icao, .results .result.airport .title .distance, .results .result.airport .title .name {
   transition: color 0.15s ease; }
 .results .result.airport .title .marker {
-  color: #2196F3;
   box-sizing: content-box;
   display: block;
   position: absolute !important;
@@ -28,6 +27,8 @@
   width: 24px;
   height: 24px;
   padding: 12px 16px; }
+  .results .result.airport .title .marker i {
+    color: #FF5722; }
 .results .result.airport .title .icao {
   text-transform: uppercase;
   font-weight: bold;

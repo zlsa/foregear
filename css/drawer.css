@@ -1,0 +1,101 @@
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
+
+.button, .ripple {
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  user-select: none;
+  transition: background-color 0.1s ease; }
+  .button:hover, .ripple:hover {
+    cursor: pointer; }
+
+#drawer {
+  background-color: rgba(0, 0, 0, 0.23);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  padding-right: 48px;
+  transition: background-color 0.4s ease; }
+  #drawer .drawer {
+    background-color: white;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
+    position: relative;
+    left: 0;
+    border-radius: 0;
+    height: 100%;
+    max-width: 320px;
+    transition: left 0.4s 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-size: 14px; }
+    #drawer .drawer .content {
+      background-color: transparent;
+      transition: border-radius 0.15s ease;
+      box-shadow: none; }
+    #drawer .drawer:after {
+      display: none; }
+    #drawer .drawer > .close.button {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 100%;
+      padding: 16px;
+      z-index: 500; }
+      #drawer .drawer > .close.button * {
+        float: right;
+        color: white; }
+    #drawer .drawer > .hero-image {
+      background-color: #FF5722;
+      position: relative;
+      width: 100%;
+      height: 180px; }
+      #drawer .drawer > .hero-image .title {
+        color: white;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 16px; }
+        #drawer .drawer > .hero-image .title h1 {
+          font-size: 24px;
+          font-weight: 500;
+          padding-bottom: 8px; }
+        #drawer .drawer > .hero-image .title h2 {
+          font-size: 14px;
+          font-style: italic; }
+    #drawer .drawer .navmenu h1 {
+      color: rgba(0, 0, 0, 0.54);
+      margin: 8px 8px;
+      padding: 8px 8px;
+      margin-top: 24px;
+      margin-bottom: 0;
+      font-weight: 500; }
+    #drawer .drawer .navmenu li {
+      position: relative;
+      padding: 8px 16px; }
+  #drawer.closed {
+    background-color: transparent;
+    pointer-events: none; }
+    #drawer.closed .drawer {
+      left: -384px; }
+
+@media (max-width: 480px) {
+  #controls .button {
+    padding: 16px; }
+
+  #controls .zoom-control.buttons {
+    opacity: 0;
+    pointer-events: none;
+    right: -16px; } }
+
+/*# sourceMappingURL=drawer.css.map */

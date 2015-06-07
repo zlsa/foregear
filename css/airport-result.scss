@@ -15,8 +15,6 @@
       }
 
       .marker {
-        color: $primary-color;
-        
         box-sizing: content-box;
 
         display: block;
@@ -29,6 +27,11 @@
         height: 24px;
 
         padding: $sheet-padding * 1.5 $sheet-padding * 2;
+        
+        i {
+          color: $primary-color;
+        }
+        
       }
 
       .icao {

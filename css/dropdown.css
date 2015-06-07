@@ -43,7 +43,7 @@
     #dropdown .results ul .result {
       display: block;
       background-color: white;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
       border-radius: 0;
       transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
       position: relative;
@@ -66,7 +66,7 @@
       #dropdown .results ul .result:after {
         pointer-events: none;
         background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
         display: block;
         position: absolute;
         content: '';
@@ -97,19 +97,19 @@
             opacity: 1; }
       #dropdown .results ul .result.top {
         margin-top: 10px;
-        border-radius: 4px 4px 0 0; }
+        border-radius: 3px 3px 0 0; }
         #dropdown .results ul .result.top .content, #dropdown .results ul .result.top:after {
-          border-radius: 4px 4px 0 0; }
+          border-radius: 3px 3px 0 0; }
         #dropdown .results ul .result.top .content {
           box-shadow: none; }
       #dropdown .results ul .result.bottom {
-        border-radius: 0 0 4px 4px; }
+        border-radius: 0 0 3px 3px; }
         #dropdown .results ul .result.bottom .content, #dropdown .results ul .result.bottom:after {
-          border-radius: 0 0 4px 4px; }
+          border-radius: 0 0 3px 3px; }
       #dropdown .results ul .result.top.bottom {
         background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
         transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease; }
         #dropdown .results ul .result.top.bottom .content {
           background-color: transparent;
@@ -118,11 +118,11 @@
         #dropdown .results ul .result.top.bottom:after {
           display: none; }
         #dropdown .results ul .result.top.bottom .data {
-          border-radius: 4px; }
+          border-radius: 3px; }
       #dropdown .results ul .result.opened {
         background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-        border-radius: 4px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+        border-radius: 3px;
         transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
         margin: 8px 0;
         height: 368px; }
@@ -133,13 +133,15 @@
         #dropdown .results ul .result.opened:after {
           display: none; }
         #dropdown .results ul .result.opened .title {
-          border-radius: 4px 4px 0 0; }
+          border-radius: 3px 3px 0 0; }
+        #dropdown .results ul .result.opened .data {
+          border-radius: 0 0 3px 3px !important; }
     #dropdown .results ul :first-child {
       border-top: 0; }
     #dropdown .results ul :last-child {
-      border-radius: 0 0 4px 4px; }
+      border-radius: 0 0 3px 3px; }
       #dropdown .results ul :last-child .content, #dropdown .results ul :last-child:after {
-        border-radius: 0 0 4px 4px; }
+        border-radius: 0 0 3px 3px; }
     #dropdown .results.no-results .text {
       display: block;
       padding-left: 40px;

@@ -1,12 +1,15 @@
 
 @import 'reset';
 
+@import 'ripple';
+
 @import 'search';
 
 @import 'map';
 
-@import 'ripple';
 @import 'controls';
+
+@import 'drawer';
 
 html, body {
   width: 100%;
@@ -23,6 +26,7 @@ html {
 
 .material-icons {
   overflow: hidden !important;
+  color: rgba(black, 0.7);
   width: 24px;
   height: 24px;
 }

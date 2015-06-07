@@ -14,8 +14,8 @@
   z-index: 500; }
   #controls > .button, #controls .buttons {
     background-color: white;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
     transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
     transition: right 0.2s ease-out, opacity 0.2s ease; }
     #controls > .button .content, #controls .buttons .content {
@@ -28,9 +28,9 @@
     position: relative;
     right: 0; }
     #controls .buttons :first-child {
-      border-radius: 4px 4px 0 0; }
+      border-radius: 3px 3px 0 0; }
     #controls .buttons :last-child {
-      border-radius: 0 0 4px 4px; }
+      border-radius: 0 0 3px 3px; }
   #controls .button {
     -webkit-user-select: none;
     -moz-user-select: -moz-none;
@@ -52,7 +52,7 @@
   #controls > .button + .button {
     margin-top: 16px; }
   #controls .aircraft-lock.button.locked {
-    color: #2196F3; }
+    color: #FF5722; }
 
 @media (max-width: 480px) {
   #controls .button {

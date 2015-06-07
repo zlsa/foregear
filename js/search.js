@@ -319,7 +319,7 @@ function search_init() {
   $("#search #searchbar input.search").blur(function() {
     setTimeout(function() {
       search_hide_suggestions();
-    }, 150);
+    }, 100);
   });
   $("#search #searchbar input.search").focus(function() {
     search_show_results();

@@ -124,6 +124,10 @@
             border-radius: $sheet-radius $sheet-radius 0 0;
           }
 
+          .data {
+            border-radius: 0 0 $sheet-radius $sheet-radius !important;
+          }
+
         }
         
       }

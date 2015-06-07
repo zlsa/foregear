@@ -26,6 +26,8 @@ $(document).ready(function() {
   
   map_init();
   search_init();
+
+  drawer_init();
 });
 
 function done() {

@@ -3,8 +3,10 @@ $material-icon-size: 24px;
 
 $sheet-anim: 0.15s;
 
-$sheet-radius: 4px;
+$sheet-radius: 3px;
 $sheet-padding: 8px;
+
+$navbar-padding: 48px;
 
 $attribution-size: 12px;
 
@@ -15,7 +17,7 @@ $paper-shadow-small-radius:  3.0px,  3.7px,  4.3px,  5.0px;
 @mixin paper-shadow($elevation: 1) {
   box-shadow: 0 1px nth($paper-shadow-large-radius, $elevation)
                     rgba(black, nth($paper-shadow-large-opacity, $elevation)),
-              0 0 nth($paper-shadow-small-radius, $elevation) rgba(black, 0.5);
+              0 0 nth($paper-shadow-small-radius, $elevation) rgba(black, 0.3);
 }
 
 @mixin paper-drop-shadow($elevation: 1) {
@@ -43,10 +45,10 @@ $paper-shadow-small-radius:  3.0px,  3.7px,  4.3px,  5.0px;
   }
 }
 
-@mixin sheet($background: white, $border: $sheet-radius) {
+@mixin sheet($background: white, $border: $sheet-radius, $elevation: 1) {
   background-color: $background;
 
-  @include paper-shadow();
+  @include paper-shadow($elevation);
   border-radius: $border;
   
   transition: margin $sheet-anim ease, border-radius $sheet-anim ease, height $sheet-anim ease, border-color $sheet-anim ease;

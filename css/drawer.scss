@@ -1,0 +1,155 @@
+
+@import 'device';
+
+@import 'color';
+
+@import 'paper';
+
+@import 'search-values';
+
+$drawer-width: 320px;
+$drawer-anim: 0.4s;
+
+#drawer {
+  background-color: rgba(black, 0.23);
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 2000;
+
+  padding-right: $navbar-padding;
+
+  transition: background-color $drawer-anim ease;
+  
+  .drawer {
+    @include sheet();
+    
+    position: relative;
+    left: 0;
+    
+    border-radius: 0;
+
+    height: 100%;
+
+    max-width: $drawer-width;
+
+    transition: left $drawer-anim 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+
+    font-size: 14px;
+
+    > .close.button {
+      position: absolute;
+      
+      top: $sheet-padding;
+      left: 0;
+
+      width: 100%;
+      
+      padding: $sheet-padding * 2;
+
+      z-index: 500;
+
+      * {
+        float: right;
+        color: white;
+      }
+      
+    }
+
+    > .hero-image {
+      background-color: $primary-color;
+
+      position: relative;
+
+      width: 100%;
+      height: $drawer-width / (16/9);
+
+      .title {
+        color: white;
+        
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+
+        padding: $sheet-padding * 2;
+
+        h1 {
+          font-size: 24px;
+          font-weight: 500;
+          padding-bottom: $sheet-padding;
+        }
+
+        h2 {
+          font-size: 14px;
+          font-style: italic;
+        }
+        
+      }
+      
+    }
+
+    .navmenu {
+      
+      h1 {
+        color: rgba(black, 0.54);
+        
+        margin: $sheet-padding $sheet-padding;
+        padding: $sheet-padding $sheet-padding;
+        margin-top: $sheet-padding * 3;
+        margin-bottom: 0;
+
+        font-weight: 500;
+      }
+
+      li {
+        position: relative;
+
+        padding: $sheet-padding $sheet-padding * 2;
+
+      }
+
+      li.connection {
+
+      }
+      
+    }
+    
+  }
+
+  &.closed {
+    background-color: rgba(black, 0);
+    pointer-events: none;
+
+    .drawer {
+      left: -$drawer-width - $sheet-padding * 8;
+    }
+    
+  }
+
+}
+
+@media (max-width: $mobile) {
+  #controls {
+
+    .button {
+      padding: $sheet-padding * 2;
+    }
+    
+  }
+  
+  #controls .zoom-control.buttons {
+    opacity: 0;
+    pointer-events: none;
+    right: -$sheet-padding * 2;
+  }
+
+}
+

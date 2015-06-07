@@ -62,10 +62,10 @@
   #search-suggestions ul {
     width: 100%;
     background-color: white;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
     transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
-    border-radius: 0 0 4px 4px; }
+    border-radius: 0 0 3px 3px; }
     #search-suggestions ul .content {
       background-color: transparent;
       transition: border-radius 0.15s ease;
@@ -73,7 +73,7 @@
     #search-suggestions ul:after {
       display: none; }
     #search-suggestions ul .content, #search-suggestions ul:after {
-      border-radius: 0 0 4px 4px; }
+      border-radius: 0 0 3px 3px; }
     #search-suggestions ul li {
       color: rgba(0, 0, 0, 0.54);
       display: block;

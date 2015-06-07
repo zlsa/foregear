@@ -37,7 +37,6 @@
 .results .result.airport .title .marker, .results .result.airport .title .icao, .results .result.airport .title .distance, .results .result.airport .title .name {
   transition: color 0.15s ease; }
 .results .result.airport .title .marker {
-  color: #2196F3;
   box-sizing: content-box;
   display: block;
   position: absolute !important;
@@ -46,6 +45,8 @@
   width: 24px;
   height: 24px;
   padding: 12px 16px; }
+  .results .result.airport .title .marker i {
+    color: #FF5722; }
 .results .result.airport .title .icao {
   text-transform: uppercase;
   font-weight: bold;
@@ -98,8 +99,8 @@
   #search #searchbar {
     position: relative;
     background-color: white;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
     transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
     margin-top: 16px;
     margin-left: 16px;
@@ -123,7 +124,7 @@
     #search #searchbar .menu.button {
       box-sizing: content-box;
       background-color: white;
-      border-radius: 4px 0 0 4px;
+      border-radius: 3px 0 0 3px;
       display: inline-block;
       position: absolute;
       left: 0;
@@ -149,7 +150,7 @@
       box-sizing: content-box;
       background-color: white;
       border-left: 1px solid #ccc;
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 3px 3px 0;
       display: inline-block;
       position: absolute;
       right: 0;
@@ -218,7 +219,7 @@
       #search #dropdown .results ul .result {
         display: block;
         background-color: white;
-        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
         border-radius: 0;
         transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
         position: relative;
@@ -241,7 +242,7 @@
         #search #dropdown .results ul .result:after {
           pointer-events: none;
           background-color: white;
-          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
           display: block;
           position: absolute;
           content: '';
@@ -272,19 +273,19 @@
               opacity: 1; }
         #search #dropdown .results ul .result.top {
           margin-top: 10px;
-          border-radius: 4px 4px 0 0; }
+          border-radius: 3px 3px 0 0; }
           #search #dropdown .results ul .result.top .content, #search #dropdown .results ul .result.top:after {
-            border-radius: 4px 4px 0 0; }
+            border-radius: 3px 3px 0 0; }
           #search #dropdown .results ul .result.top .content {
             box-shadow: none; }
         #search #dropdown .results ul .result.bottom {
-          border-radius: 0 0 4px 4px; }
+          border-radius: 0 0 3px 3px; }
           #search #dropdown .results ul .result.bottom .content, #search #dropdown .results ul .result.bottom:after {
-            border-radius: 0 0 4px 4px; }
+            border-radius: 0 0 3px 3px; }
         #search #dropdown .results ul .result.top.bottom {
           background-color: white;
-          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-          border-radius: 4px;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+          border-radius: 3px;
           transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease; }
           #search #dropdown .results ul .result.top.bottom .content {
             background-color: transparent;
@@ -293,11 +294,11 @@
           #search #dropdown .results ul .result.top.bottom:after {
             display: none; }
           #search #dropdown .results ul .result.top.bottom .data {
-            border-radius: 4px; }
+            border-radius: 3px; }
         #search #dropdown .results ul .result.opened {
           background-color: white;
-          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-          border-radius: 4px;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+          border-radius: 3px;
           transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
           margin: 8px 0;
           height: 368px; }
@@ -308,13 +309,15 @@
           #search #dropdown .results ul .result.opened:after {
             display: none; }
           #search #dropdown .results ul .result.opened .title {
-            border-radius: 4px 4px 0 0; }
+            border-radius: 3px 3px 0 0; }
+          #search #dropdown .results ul .result.opened .data {
+            border-radius: 0 0 3px 3px !important; }
       #search #dropdown .results ul :first-child {
         border-top: 0; }
       #search #dropdown .results ul :last-child {
-        border-radius: 0 0 4px 4px; }
+        border-radius: 0 0 3px 3px; }
         #search #dropdown .results ul :last-child .content, #search #dropdown .results ul :last-child:after {
-          border-radius: 0 0 4px 4px; }
+          border-radius: 0 0 3px 3px; }
       #search #dropdown .results.no-results .text {
         display: block;
         padding-left: 40px;
@@ -408,10 +411,10 @@
     #search #search-suggestions ul {
       width: 100%;
       background-color: white;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.5);
-      border-radius: 4px;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+      border-radius: 3px;
       transition: margin 0.15s ease, border-radius 0.15s ease, height 0.15s ease, border-color 0.15s ease;
-      border-radius: 0 0 4px 4px; }
+      border-radius: 0 0 3px 3px; }
       #search #search-suggestions ul .content {
         background-color: transparent;
         transition: border-radius 0.15s ease;
@@ -419,7 +422,7 @@
       #search #search-suggestions ul:after {
         display: none; }
       #search #search-suggestions ul .content, #search #search-suggestions ul:after {
-        border-radius: 0 0 4px 4px; }
+        border-radius: 0 0 3px 3px; }
       #search #search-suggestions ul li {
         color: rgba(0, 0, 0, 0.54);
         display: block;
@@ -456,9 +459,9 @@
           #search #search-suggestions ul li .icon {
             top: 20px; } }
   #search.dropdown-touching #searchbar {
-    border-radius: 4px 4px 0 0; }
+    border-radius: 3px 3px 0 0; }
   #search.dropdown-open #dropdown {
-    border-radius: 0 0 4px 4px; }
+    border-radius: 0 0 3px 3px; }
 
 @media (max-width: 640px) {
   #search {

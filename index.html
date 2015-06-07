@@ -8,7 +8,7 @@
     
     <!-- googley fonts -->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Roboto:200,400,700|Roboto+Mono:400,700|Roboto+Condensed:400,700,900" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:200,400,500,700|Roboto+Mono:400,700|Roboto+Condensed:400,700,900" rel="stylesheet" />
 
     <!-- my stuff -->
     <link href="css/main.css" rel="stylesheet" />
@@ -32,6 +32,8 @@
     <script src="js/airports.js"></script>
     
     <script src="js/map.js"></script>
+    
+    <script src="js/drawer.js"></script>
     
     <script src="js/main.js"></script>
     
@@ -92,5 +94,43 @@
       
     </div>
 
-  </body>
+    <!-- navigation drawer -->
+
+    <div id="drawer" class="closed">
+      
+      <div class="drawer">
+        <div class="close button"><i class="material-icons">close</i></div>
+        <div class="hero-image">
+          <div class="title">
+            <h1>ForeGear</h1>
+            <h2>Flight tracking and planning for FlightGear</h2>
+          </div>
+        </div>
+        
+        <div class="remote connection navmenu">
+          <h1>MPServer</h1>
+          <ul>
+            <li class="remote connection">
+              <span class="address">mpmap02</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="local connection navmenu">
+          <h1>Local connections</h1>
+          <ul>
+            <li class="local connection">
+              <span class="address">localhost:5050</span>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      
+    </div>
+    <div class="background-cover">
+    </div>
+</div>
+
+</body>
 </html>
