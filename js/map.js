@@ -1,6 +1,6 @@
 
 var BasicMap = Events.extend({
-  init: function() {
+  init: function(element, options) {
     this._super();
     
     var map = this;
@@ -9,6 +9,13 @@ var BasicMap = Events.extend({
       map.action.call(map, $(this).attr("data-action"));
     })
 
+    this.element = element;
+
+    this.set(options);
+
+    this.create_map();
+    
+    this.create_listeners();
   },
 
   panTo: function(location) {
@@ -44,16 +51,7 @@ var BasicMap = Events.extend({
 var LeafletMap = BasicMap.extend({
   init: function(element, options) {
     if(!options) options = {};
-
     this._super(element, options);
-
-    this.element = element;
-
-    this.set(options);
-
-    this.create_map();
-    
-    this.create_listeners();
   },
 
   create_map: function() {
@@ -112,6 +110,88 @@ var LeafletMap = BasicMap.extend({
 
 });
 
+var MapboxMap = BasicMap.extend({
+  init: function(element, options) {
+    if(!options) options = {};
+
+    this._super(element, options);
+  },
+
+  create_map: function() {
+    this.map = new mapboxgl.Map({
+      container: this.element,
+      style: "https://www.mapbox.com/mapbox-gl-styles/styles/outdoors-v7.json",
+      center: [37.6189, -122.375040],
+      zoom: 11
+      // "mapbox.outdoors"
+      // zoomControl: false
+    });
+    //    this.map.setView(, 11);
+  },
+  
+  create_listeners: function() {
+    var map = this;
+    this.map.on("move", function(e) {
+      map.fire.call(map, "move", map.getCenter());
+    });
+  },
+
+  set: function() {
+    
+  },
+
+  setView: function(location, zoom, animate) {
+    if(animate == undefined) animate = true;
+    
+    this.map.setView(location, zoom, {
+      animate: animate,
+    });
+    
+  },
+
+  panTo: function(location) {
+    this.map.panTo(location);
+    
+    this._super(location);
+  },
+
+  getZoom: function() {
+    return this.map.getZoom();
+  },
+  
+  setZoom: function(zoom) {
+    this.map.setZoom(zoom);
+  },
+
+  addMarker: function(marker) {
+    this.map.addLayer({
+      "id": "markers",
+      "type": "symbol",
+      "source": "markers",
+      "layout": {
+        "icon-image": "{marker-symbol}-12",
+        "text-field": "{title}",
+        "text-font": "Open Sans Semibold, Arial Unicode MS Bold",
+        "text-offset": [0, 0.6],
+        "text-anchor": "top"
+      },
+      "paint": {
+        "text-size": 12
+      }
+    });
+  },
+
+  removeMarker: function(marker) {
+    this.map.removeLayer(marker.marker);
+  },
+
+  getCenter: function() {
+    var c = this.map.getCenter();
+    return [c.lat, c.lng];
+  }
+
+});
+
 var BasicMarker = Class.extend({
   init: function(location, map) {
     this.map = null;
@@ -142,13 +222,39 @@ var LeafletMarker = BasicMarker.extend({
 
 });
 
+var MapboxMarker = BasicMarker.extend({
+  init: function(location, map) {
+    this._super(location, map);
+    
+    map.map.addSource("markers", {
+      "type": "geojson",
+      "data": {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": location
+        }
+      }
+    });
+    
+    if(this.map)
+      this.addTo(this.map);
+  },
+
+});
+
 var Map    = LeafletMap;
 var Marker = LeafletMarker;
 
+//var Map    = MapboxMap;
+//var Marker = MapboxMarker;
+
 function map_init() {
+  MAP_ACCESS_TOKEN = "pk.eyJ1IjoiemxzYSIsImEiOiJuOGtheTRvIn0.nARpggDJzduPw-dkchKRpQ";
+  
   L.mapbox.accessToken = "pk.eyJ1IjoiemxzYSIsImEiOiJuOGtheTRvIn0.nARpggDJzduPw-dkchKRpQ";
   
-  prop.map = new LeafletMap("map-container");
+  prop.map = new Map("map-container");
 }
 
 function map_static(location, zoom) {
@@ -168,10 +274,11 @@ function map_static(location, zoom) {
   url += width  + "x";
   url += height + ".";
   url += format + "?access_token=";
-  url += L.mapbox.accessToken;
+  url += MAP_ACCESS_TOKEN;
   return url;
 }
 
 function map_distance(a, b) {
-  return L.latLng(a).distanceTo(b);
+  return haversine_distance(a, b);
+  //  return L.latLng(a).distanceTo(b);
 }
